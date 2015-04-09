@@ -13,7 +13,7 @@ B. How does input type affect runtime for each algorithm, and why?
 
 Our group will proceed with this project as such:
 1. First, we will create the input generation program, to be able to test our algorithms with small inputs
-    at first. This will allow for testing the scalability of our implementations easliy.
+    at first. This will allow for testing the scalability of our implementations easily.
 
 2. We will split up development of each of the sorts between the three of us by preference of which sort each
     person would prefer to do. Each of these sorts will be tested thoroughly to ensure correctness with all sizes
