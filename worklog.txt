@@ -8,3 +8,4 @@ Joseph Grillo
 Benny Mei
   Project Idea Suggestions
   Formal formation of project team
+  Created github repository
