@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
+#include <set>
 
 /* This file is used to generate input for the sorting algorithms
  * that we propose to write.
@@ -70,9 +71,19 @@ int main(int argc, char* argv[]){
       }
     }
     else if(state == "randomized"){
+      bool debug = false;
       srand(time(NULL));
+      std::set<int> numberList;
       for(int i = 0; i < input_size; i++){
-        output<<rand()<<std::endl;
+        int randomNumber = rand();
+        if(numberList.find(randomNumber) == numberList.end()){
+          output<<randomNumber<<std::endl;
+          numberList.insert(randomNumber);
+        }
+        else{
+          if(debug){std::cout<<"duplicate number found at index i = "<<i<<std::endl;}
+          i--;
+        }
       }
     }
   }
