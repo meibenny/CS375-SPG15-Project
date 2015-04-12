@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 /* This file is used to generate input for the sorting algorithms
  * that we propose to write.
@@ -15,6 +16,11 @@
  * duplicates is a flag determining if duplicates are allowed in the set
  * output_file is a file where the dataset should be written
  * 
+ * size_of_input may be any integer.
+ * state may be one of: sorted, reversely_sorted, randomized.
+ * duplicates may be one of: true, false.
+ * output_file may be any string.
+ *
 */
 
 
@@ -29,8 +35,42 @@ int main(int argc, char* argv[]){
     exit(1);
   }
 
-  std::cout<<"Hello world. We're in generate_numbers.cpp"<<std::endl;
-  
+  std::stringstream ss;
+  ss << argv[1];
+  int input_size;
+  ss >> input_size;
+  if(ss.fail()){std::cout<<"Error in state == sorted, duplicates == false"<<std::endl; exit(1);}
+  std::string state = argv[2];
+  std::string duplicates = argv[3];
+  std::string outputFile = argv[4];
+
+  if(duplicates == "false"){
+    std::ofstream output;
+    output.open(outputFile);
+    if(output.is_open()){
+      //clear file contents
+      output.close();
+    }
+    output.open(outputFile);
+    if(!output.is_open()){
+      //exit program if we can't open the output file
+      std::cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<<std::endl;
+      exit(1);
+    }
+    if(state == "sorted"){
+      for(int i = 0; i < input_size; i++){
+        output << i + 1 << std::endl;
+      }
+    }
+    else if(state == "reversely_sorted"){
+      for(int i = input_size; i > 0; i--){
+        output << i << std::endl;
+      }
+    }
+  }
+
+
+
   return 0;
 }
 
