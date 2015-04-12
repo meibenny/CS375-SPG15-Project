@@ -86,6 +86,12 @@ int main(int argc, char* argv[]){
         }
       }
     }
+    output.close();
+  }
+  else if(duplicates == "true"){
+    //TODO: Add code to generate sorted input
+    //TODO: Add code to generate reversely sorted input
+    //TODO: Add code to generate randomized input
   }
 
 
