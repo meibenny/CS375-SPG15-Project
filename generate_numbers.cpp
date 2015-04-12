@@ -2,6 +2,8 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 
 /* This file is used to generate input for the sorting algorithms
  * that we propose to write.
@@ -65,6 +67,12 @@ int main(int argc, char* argv[]){
     else if(state == "reversely_sorted"){
       for(int i = input_size; i > 0; i--){
         output << i << std::endl;
+      }
+    }
+    else if(state == "randomized"){
+      srand(time(NULL));
+      for(int i = 0; i < input_size; i++){
+        output<<rand()<<std::endl;
       }
     }
   }
