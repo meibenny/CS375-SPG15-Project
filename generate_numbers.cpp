@@ -54,6 +54,7 @@ bool correctArgumentFormat(int argc, char *argv[]){
     std::cout<<USAGE_MESSAGE<<std::endl;
     return false;
   }
+  //Test whether the "state" arguement is correct
   ss.clear();
   std::string stateString;
   ss << argv[2];
@@ -63,14 +64,37 @@ bool correctArgumentFormat(int argc, char *argv[]){
     std::cout<<USAGE_MESSAGE<<std::endl;
     return false;
   }
-  ss.clear();
   if(!(stateString == "sorted" || 
      stateString == "reversely_sorted" || 
      stateString == "randomized")){
     std::cout<<"Error. state must be either \"sorted\", \"reversely_sorted\", or \"randomized\"."<<std::endl;
     return false;
   }
-
+  //Test whether the "duplicates" arguement is correct
+  ss.clear();
+  std::string duplicatesString;
+  ss << argv[3];
+  ss >> duplicatesString;
+  if(ss.fail()){
+    std::cout<<"Error. duplicates must be a string."<<std::endl;
+    std::cout<<USAGE_MESSAGE<<std::endl;
+    return false;
+  }
+  if(!(duplicatesString == "true" || duplicatesString == "false")){
+    std::cout<<"Error. duplicates must be either \"true\" or \"false\"."<<std::endl;
+    return false;
+  }
+  //Test whether the output argument is correct
+  ss.clear();
+  std::string outputFile;
+  ss << argv[4];
+  ss >> outputFile;
+  if(ss.fail()){
+    std::cout<<"Error. output_file must be a string"<<std::endl;
+    std::cout<<USAGE_MESSAGE<<std::endl;
+    return false;
+  }
+  ss.clear();
 
   return true;
 }
