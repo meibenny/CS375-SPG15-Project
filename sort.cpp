@@ -4,7 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
-
+using namespace std;
 /* Use this file to sort the automatically generated input
  *
  * NOTE: This is not the implementation of the project code
@@ -25,33 +25,38 @@ int main(int argc, char* argv[]){
   if(!correctArgumentFormat(argc, argv)){
     exit(1);
   }
-  std::cout<<"You've given correct arguments. Congratulations."<<std::endl;
+  cout<<"You've given correct arguments. Congratulations."<<std::endl;
 
-  std::string inputFile = argv[1];
-  std::vector<int> numbers;
-  std::ifstream input;
-  input.open(inputFile);if(!input.is_open()){std::cout<<"Error opening input file. Exit."<<std::endl; exit(1);}
+  string inputFile = argv[1];
+  vector<int> numbers;
+  ifstream input;
+  input.open(inputFile);if(!input.is_open())
+  {
+    cout << "Error opening input file. Exit." << endl; 
+    exit(1);
+  }
   int eachNumber;
-  while(input >> eachNumber){
+  while(input >> eachNumber)
+  {
     numbers.push_back(eachNumber);
   }
   input.close();
   
   for(int i = 0; i < (int) numbers.size(); i++){
-    std::cout<<numbers[i]<<std::endl;
+    //cout << numbers[i] << endl;
   }
 
-  std::sort(numbers.begin(), numbers.end());
+  sort(numbers.begin(), numbers.end());
 
-  std::cout<<std::endl;
+  //cout << endl;
   
-  std::ofstream output;
-  std::string outputFile = argv[2];
-  output.open(outputFile);if(!output.is_open()){std::cout<<"Error opening output file. Exit."<<std::endl; exit(1);}
+  ofstream output;
+  string outputFile = argv[2];
+  output.open(outputFile);if(!output.is_open()){cout<<"Error opening output file. Exit."<<endl; exit(1);}
 
   for(int i = 0; i < (int) numbers.size(); i++){
-    std::cout<<numbers[i]<<std::endl;
-    output<<numbers[i]<<std::endl;
+    //cout << numbers[i] << endl;
+    output << numbers[i] << endl;
   }
   output.close();
 
@@ -61,34 +66,34 @@ int main(int argc, char* argv[]){
 
 bool correctArgumentFormat(int argc, char* argv[]){
   int NUM_CORRECT_ARGUMENTS = 3;
-  std::string USAGE_MESSAGE = "USAGE: <input-file> <output-file>"; 
+  string USAGE_MESSAGE = "USAGE: <input-file> <output-file>"; 
 
   if(argc != NUM_CORRECT_ARGUMENTS){
-    std::cout<<"Expected "<<NUM_CORRECT_ARGUMENTS<<". Received "<<argc<<" arguments."<<std::endl;
-    std::cout<<USAGE_MESSAGE<<std::endl;
+    cout<<"Expected "<<NUM_CORRECT_ARGUMENTS<<". Received "<<argc<<" arguments."<< endl;
+    cout << USAGE_MESSAGE << endl;
     return false;
   }
 
-  std::stringstream ss;
+  stringstream ss;
   ss << argv[1];
-  std::string inputFile;
+  string inputFile;
   ss >> inputFile;
   if(ss.fail()){
-    std::cout<<"Error. input-file must be a string."<<std::endl;
+    cout << "Error. input-file must be a string." << endl;
     return false;
   }
-  std::ifstream input;
+  ifstream input;
   input.open(inputFile);
   if(!input.is_open()){
-    std::cout<<"Error. input-file must exist."<<std::endl;
+    cout << "Error. input-file must exist." << endl;
     return false;
   }
   ss.clear();
   ss << argv[2];
-  std::string outputFile;
+  string outputFile;
   ss >> outputFile;
   if(ss.fail()){
-    std::cout<<"Error. output-file must be a string."<<std::endl;
+    cout << "Error. output-file must be a string." << endl;
     return false;
   }
   return true;

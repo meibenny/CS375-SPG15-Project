@@ -120,7 +120,8 @@ if(duplicates == "false"){
 		//This line needs to be fine tuned:
 		//Depending on how many duplicates we would like to 
 		//have in a row we can alter it
-  		randomNumber = rand() % (input_size / 10);
+		randomNumber = rand() % 10;
+  		//randomNumber = rand() % (input_size / 10);
 
 		for(int j = 0; j < randomNumber; j++)
 		output << i + 1 << endl;
@@ -155,7 +156,8 @@ if(duplicates == "false"){
 		//This line needs to be fine tuned:
 		//Depending on how many duplicates we would like to 
 		//have in a row we can alter it
-  		randomNumber = rand() % (input_size / 10);
+  		//randomNumber = rand() % (input_size / 10);
+		randomNumber = rand() % 10;
  
  		for(int j = 0; j < randomNumber; j++)
 		output << i  << endl;
