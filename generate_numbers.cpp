@@ -47,19 +47,20 @@ int main(int argc, char* argv[]){
   std::string duplicates = argv[3];
   std::string outputFile = argv[4];
 
+  std::ofstream output;
+  output.open(outputFile);
+  if(output.is_open()){
+    //clear file contents
+    output.close();
+  }
+  output.open(outputFile);
+  if(!output.is_open()){
+    //exit program if we can't open the output file
+    std::cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<<std::endl;
+    exit(1);
+  }
+
   if(duplicates == "false"){
-    std::ofstream output;
-    output.open(outputFile);
-    if(output.is_open()){
-      //clear file contents
-      output.close();
-    }
-    output.open(outputFile);
-    if(!output.is_open()){
-      //exit program if we can't open the output file
-      std::cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<<std::endl;
-      exit(1);
-    }
     if(state == "sorted"){
       for(int i = 0; i < input_size; i++){
         output << i + 1 << std::endl;
@@ -86,11 +87,27 @@ int main(int argc, char* argv[]){
         }
       }
     }
-    output.close();
   }
   else if(duplicates == "true"){
     //TODO: Add code to generate sorted input
     if(state == "sorted"){
+      int modulus = input_size / 2; //We use a modulus to guarantee that we will have duplicate values
+      int* frequencyTable = new int[modulus];
+      for(int i = 0; i < modulus; i++){
+        frequencyTable[i] = 0;
+      }
+      for(int i = 0; i < input_size; i++){
+        frequencyTable[i%modulus] += 1;
+      }
+      for(int i = 0; i < modulus; i++){
+        while(frequencyTable[i] > 0){
+          output<<i<<std::endl;
+          frequencyTable[i] -= 1;
+        }
+      }
+
+
+      delete[] frequencyTable;
 
     }
     //TODO: Add code to generate reversely sorted input
@@ -103,6 +120,7 @@ int main(int argc, char* argv[]){
     }
   }
 
+  output.close();
 
 
   return 0;
