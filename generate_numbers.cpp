@@ -82,19 +82,17 @@ int main(int argc, char* argv[]){
       set<int> numberList;
       for(int i = 0; i < input_size; i++)
       {
-       		randomNumber = rand();
-        	if(numberList.find(randomNumber) == numberList.end())
-		{
-        	  output << randomNumber << endl;
-       	 	  numberList.insert(randomNumber);
-       		}
-        	else
-		{
-          	if(debug)
-		{
-			cout <<"duplicate number found at index i = "<< i << endl;}
-          		i--;
-       		}
+        randomNumber = rand();
+        if(numberList.find(randomNumber) == numberList.end())
+		    {   
+          output << randomNumber << endl;
+       	  numberList.insert(randomNumber);
+       	}
+        else
+        {
+          if(debug){cout <<"duplicate number found at index i = "<< i << endl;}
+          i--;
+       	}
       }
     }
   }
@@ -103,6 +101,7 @@ int main(int argc, char* argv[]){
   
     //TODO: Add code to generate sorted input
     //Option one
+    //Generates values in a range [1, input_size -1]
     if(state == "sorted")
     {
     	srand(time(NULL));
@@ -117,7 +116,12 @@ int main(int argc, char* argv[]){
 		output << i + 1 << endl;
       	}
     }
+<<<<<<< HEAD
 /*    //Option two
+=======
+    //Option two
+    //Generates values in a range [0, input_size /2]
+>>>>>>> 9e86758dd07b06f697bf78fe30e2876078df3af1
     if(state == "sorted"){
       int modulus = input_size / 2; //We use a modulus to guarantee that we will have duplicate values
       int* frequencyTable = new int[modulus];
