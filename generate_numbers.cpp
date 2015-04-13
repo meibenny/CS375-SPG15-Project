@@ -84,16 +84,14 @@ int main(int argc, char* argv[]){
       {
        		randomNumber = rand();
         	if(numberList.find(randomNumber) == numberList.end())
-		{
+		      {   
         	  output << randomNumber << endl;
        	 	  numberList.insert(randomNumber);
        		}
         	else
-		{
-          	if(debug)
-		{
-			cout <<"duplicate number found at index i = "<< i << endl;}
-          		i--;
+          {
+          	if(debug){cout <<"duplicate number found at index i = "<< i << endl;}
+          	i--;
        		}
       }
     }
