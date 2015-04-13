@@ -116,12 +116,8 @@ int main(int argc, char* argv[]){
 		output << i + 1 << endl;
       	}
     }
-<<<<<<< HEAD
 /*    //Option two
-=======
-    //Option two
     //Generates values in a range [0, input_size /2]
->>>>>>> 9e86758dd07b06f697bf78fe30e2876078df3af1
     if(state == "sorted"){
       int modulus = input_size / 2; //We use a modulus to guarantee that we will have duplicate values
       int* frequencyTable = new int[modulus];
