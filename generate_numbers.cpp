@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <set>
-
+using namespace std;
 /* This file is used to generate input for the sorting algorithms
  * that we propose to write.
  *
@@ -38,17 +38,19 @@ int main(int argc, char* argv[]){
     exit(1);
   }
 
-  std::stringstream ss;
+  stringstream ss;
   ss << argv[1];
-  int input_size;
+  int input_size = 0, randomNumber = 0;
   ss >> input_size;
-  if(ss.fail()){std::cout<<"Error in state == sorted, duplicates == false"<<std::endl; exit(1);}
-  std::string state = argv[2];
-  std::string duplicates = argv[3];
-  std::string outputFile = argv[4];
+  if(ss.fail()){cout<<"Error in state == sorted, duplicates == false"<< endl; exit(1);}
+  string state = argv[2];
+  string duplicates = argv[3];
+  string outputFile = argv[4];
 
-  if(duplicates == "false"){
-    std::ofstream output;
+    //Open and error check stringstream to 
+    //output file before entering number
+    //generation code
+    ofstream output;
     output.open(outputFile);
     if(output.is_open()){
       //clear file contents
@@ -57,9 +59,12 @@ int main(int argc, char* argv[]){
     output.open(outputFile);
     if(!output.is_open()){
       //exit program if we can't open the output file
-      std::cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<<std::endl;
+      cout<<"Could not open "<< outputFile << endl;
+      //cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<< endl;
       exit(1);
     }
+
+  if(duplicates == "false"){
     if(state == "sorted"){
       for(int i = 0; i < input_size; i++){
         output << i + 1 << std::endl;
@@ -67,29 +72,48 @@ int main(int argc, char* argv[]){
     }
     else if(state == "reversely_sorted"){
       for(int i = input_size; i > 0; i--){
-        output << i << std::endl;
+        output << i << endl;
       }
     }
-    else if(state == "randomized"){
+    else if(state == "randomized")
+    {
       bool debug = false;
       srand(time(NULL));
-      std::set<int> numberList;
-      for(int i = 0; i < input_size; i++){
-        int randomNumber = rand();
-        if(numberList.find(randomNumber) == numberList.end()){
-          output<<randomNumber<<std::endl;
-          numberList.insert(randomNumber);
-        }
-        else{
-          if(debug){std::cout<<"duplicate number found at index i = "<<i<<std::endl;}
-          i--;
-        }
+      set<int> numberList;
+      for(int i = 0; i < input_size; i++)
+      {
+       		randomNumber = rand();
+        	if(numberList.find(randomNumber) == numberList.end())
+		{
+        	  output << randomNumber << endl;
+       	 	  numberList.insert(randomNumber);
+       		}
+        	else
+		{
+          	if(debug)
+		{
+			cout <<"duplicate number found at index i = "<< i << endl;}
+          		i--;
+       		}
       }
     }
     output.close();
   }
-  else if(duplicates == "true"){
+  else if(duplicates == "true")
+  {
+  
     //TODO: Add code to generate sorted input
+    if(state == "sorted")
+    {
+    	srand(time(NULL));
+    	for(int i = 0; i < input_size; i+= randomNumber)	
+      	{	
+
+  		randomNumber = rand() % 5;
+		for(int j = 0; j < randomNumber; j++)
+		output << i + 1 << endl;
+      	}
+    }
     //TODO: Add code to generate reversely sorted input
     //TODO: Add code to generate randomized input
   }
