@@ -20,7 +20,7 @@ using namespace std;
  * output_file is a file where the dataset should be written
  * 
  * size_of_input may be any integer.
- * state may be one of: sorted, reversely_sorted, randomized.
+ * state may be one of: sorted, r_sorted, randomized.
  * duplicates may be one of: true, false.
  * output_file may be any string.
  *
@@ -70,7 +70,7 @@ int main(int argc, char* argv[]){
         output << i + 1 << endl;
       }
     }
-    else if(state == "reversely_sorted"){
+    else if(state == "r_sorted"){
       for(int i = input_size; i > 0; i--){
         output << i << endl;
       }
@@ -108,13 +108,16 @@ int main(int argc, char* argv[]){
     	srand(time(NULL));
     	for(int i = 0; i < input_size; i+= randomNumber)	
       	{	
+		//This line needs to be fine tuned:
+		//Depending on how many duplicates we would like to 
+		//have in a row we can alter it
+  		randomNumber = rand() % (input_size / 10);
 
-  		randomNumber = rand() % 5;
 		for(int j = 0; j < randomNumber; j++)
 		output << i + 1 << endl;
       	}
     }
-    //Option two
+/*    //Option two
     if(state == "sorted"){
       int modulus = input_size / 2; //We use a modulus to guarantee that we will have duplicate values
       int* frequencyTable = new int[modulus];
@@ -133,13 +136,40 @@ int main(int argc, char* argv[]){
       delete[] frequencyTable;
 
     }
-    //TODO: Add code to generate reversely sorted input
-    else if(state == "reversely_sorted"){
+ */   //TODO: Add code to generate reversely sorted input
+    else if(state == "r_sorted")
+    {
+    	srand(time(NULL));
+    	for(int i = input_size; i > 0; i-= randomNumber)	
+      	{	
+		//This line needs to be fine tuned:
+		//Depending on how many duplicates we would like to 
+		//have in a row we can alter it
+  		randomNumber = rand() % (input_size / 10);
+ 
+ 		for(int j = 0; j < randomNumber; j++)
+		output << i  << endl;
+      	}
 
     }
     //TODO: Add code to generate randomized input
     else if(state == "randomized"){
-
+	int leftToGo = input_size;
+    	int numToPrint = 0;
+	srand(time(NULL));
+	
+	while(leftToGo > 0)
+	{
+		numToPrint = (rand() % input_size);
+		//Limit # of occurences of any single
+		//number to 5: can be fine tuned
+		randomNumber = rand() % 5;
+		for(int j = 0; j < randomNumber; j++)
+		{
+			output << numToPrint << endl;
+			leftToGo--;
+		}
+	}
     }
   }
 
@@ -180,9 +210,9 @@ bool correctArgumentFormat(int argc, char *argv[]){
     return false;
   }
   if(!(stateString == "sorted" || 
-     stateString == "reversely_sorted" || 
+     stateString == "r_sorted" || 
      stateString == "randomized")){
-    std::cout<<"Error. state must be either \"sorted\", \"reversely_sorted\", or \"randomized\"."<<std::endl;
+    std::cout<<"Error. state must be either \"sorted\", \"r_sorted\", or \"randomized\"."<<std::endl;
     return false;
   }
   //Test whether the "duplicates" arguement is correct
