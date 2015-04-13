@@ -103,6 +103,7 @@ int main(int argc, char* argv[]){
   
     //TODO: Add code to generate sorted input
     //Option one
+    //Generates values in a range [1, input_size -1]
     if(state == "sorted")
     {
     	srand(time(NULL));
@@ -115,6 +116,7 @@ int main(int argc, char* argv[]){
       	}
     }
     //Option two
+    //Generates values in a range [0, input_size /2]
     if(state == "sorted"){
       int modulus = input_size / 2; //We use a modulus to guarantee that we will have duplicate values
       int* frequencyTable = new int[modulus];
