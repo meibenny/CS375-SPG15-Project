@@ -47,6 +47,7 @@ int main(int argc, char* argv[]){
   string duplicates = argv[3];
   string outputFile = argv[4];
 
+<<<<<<< HEAD
     //Open and error check stringstream to 
     //output file before entering number
     //generation code
@@ -63,6 +64,20 @@ int main(int argc, char* argv[]){
       //cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<< endl;
       exit(1);
     }
+=======
+  std::ofstream output;
+  output.open(outputFile);
+  if(output.is_open()){
+    //clear file contents
+    output.close();
+  }
+  output.open(outputFile);
+  if(!output.is_open()){
+    //exit program if we can't open the output file
+    std::cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<<std::endl;
+    exit(1);
+  }
+>>>>>>> 30349d6965c0d9032cb736000c41a3a08c92deba
 
   if(duplicates == "false"){
     if(state == "sorted"){
@@ -97,12 +112,12 @@ int main(int argc, char* argv[]){
        		}
       }
     }
-    output.close();
   }
   else if(duplicates == "true")
   {
   
     //TODO: Add code to generate sorted input
+<<<<<<< HEAD
     if(state == "sorted")
     {
     	srand(time(NULL));
@@ -113,11 +128,39 @@ int main(int argc, char* argv[]){
 		for(int j = 0; j < randomNumber; j++)
 		output << i + 1 << endl;
       	}
+=======
+    if(state == "sorted"){
+      int modulus = input_size / 2; //We use a modulus to guarantee that we will have duplicate values
+      int* frequencyTable = new int[modulus];
+      for(int i = 0; i < modulus; i++){
+        frequencyTable[i] = 0;
+      }
+      for(int i = 0; i < input_size; i++){
+        frequencyTable[i%modulus] += 1;
+      }
+      for(int i = 0; i < modulus; i++){
+        while(frequencyTable[i] > 0){
+          output<<i<<std::endl;
+          frequencyTable[i] -= 1;
+        }
+      }
+
+
+      delete[] frequencyTable;
+
+>>>>>>> 30349d6965c0d9032cb736000c41a3a08c92deba
     }
     //TODO: Add code to generate reversely sorted input
+    else if(state == "reversely_sorted"){
+
+    }
     //TODO: Add code to generate randomized input
+    else if(state == "randomized"){
+
+    }
   }
 
+  output.close();
 
 
   return 0;
