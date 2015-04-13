@@ -2,6 +2,8 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <vector>
+#include <algorithm>
 
 /* Use this file to sort the automatically generated input
  *
@@ -24,6 +26,35 @@ int main(int argc, char* argv[]){
     exit(1);
   }
   std::cout<<"You've given correct arguments. Congratulations."<<std::endl;
+
+  std::string inputFile = argv[1];
+  std::vector<int> numbers;
+  std::ifstream input;
+  input.open(inputFile);if(!input.is_open()){std::cout<<"Error opening input file. Exit."<<std::endl; exit(1);}
+  int eachNumber;
+  while(input >> eachNumber){
+    numbers.push_back(eachNumber);
+  }
+  input.close();
+  
+  for(int i = 0; i < (int) numbers.size(); i++){
+    std::cout<<numbers[i]<<std::endl;
+  }
+
+  std::sort(numbers.begin(), numbers.end());
+
+  std::cout<<std::endl;
+  
+  std::ofstream output;
+  std::string outputFile = argv[2];
+  output.open(outputFile);if(!output.is_open()){std::cout<<"Error opening output file. Exit."<<std::endl; exit(1);}
+
+  for(int i = 0; i < (int) numbers.size(); i++){
+    std::cout<<numbers[i]<<std::endl;
+    output<<numbers[i]<<std::endl;
+  }
+  output.close();
+
 
   return 0;
 }
