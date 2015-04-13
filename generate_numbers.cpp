@@ -82,17 +82,17 @@ int main(int argc, char* argv[]){
       set<int> numberList;
       for(int i = 0; i < input_size; i++)
       {
-       		randomNumber = rand();
-        	if(numberList.find(randomNumber) == numberList.end())
-		      {   
-        	  output << randomNumber << endl;
-       	 	  numberList.insert(randomNumber);
-       		}
-        	else
-          {
-          	if(debug){cout <<"duplicate number found at index i = "<< i << endl;}
-          	i--;
-       		}
+        randomNumber = rand();
+        if(numberList.find(randomNumber) == numberList.end())
+		    {   
+          output << randomNumber << endl;
+       	  numberList.insert(randomNumber);
+       	}
+        else
+        {
+        	if(debug){cout <<"duplicate number found at index i = "<< i << endl;}
+        	i--;
+       	}
       }
     }
   }
