@@ -90,8 +90,8 @@ int main(int argc, char* argv[]){
        	}
         else
         {
-        	if(debug){cout <<"duplicate number found at index i = "<< i << endl;}
-        	i--;
+          if(debug){cout <<"duplicate number found at index i = "<< i << endl;}
+          i--;
        	}
       }
     }
