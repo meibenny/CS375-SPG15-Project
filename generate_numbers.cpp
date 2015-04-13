@@ -50,31 +50,41 @@ int main(int argc, char* argv[]){
     //Open and error check stringstream to 
     //output file before entering number
     //generation code
-    ofstream output;
-    output.open(outputFile);
-    if(output.is_open()){
-      //clear file contents
-      output.close();
-    }
-    output.open(outputFile);
-    if(!output.is_open()){
+  ofstream output;
+  output.open(outputFile);
+  if(output.is_open())
+  {
+  //clear file contents
+  output.close();
+  }
+  output.open(outputFile);
+  if(!output.is_open()){
       //exit program if we can't open the output file
       cout<<"Could not open "<< outputFile << endl;
       //cout<<"Could not open "<<outputFile<<" in state == sorted, duplicates == false"<< endl;
       exit(1);
     }
+  /*
+  //	File output stream has been initialized and error checked:
+  //	Clear to begin generation code
+  //    First 3 cases are for no duplicate numbers allowed, 
+  //	Last 3 cases are for duplicates permitted.
+  */  
 
-  if(duplicates == "false"){
+if(duplicates == "false"){
+	//Code to generate sorted, no duplicate input
     if(state == "sorted"){
       for(int i = 0; i < input_size; i++){
         output << i + 1 << endl;
       }
     }
+	//Code to generate reverse sorted, no duplicate input
     else if(state == "r_sorted"){
       for(int i = input_size; i > 0; i--){
         output << i << endl;
       }
     }
+	//Code to generate randomized, no duplicate input
     else if(state == "randomized")
     {
       bool debug = false;
@@ -99,7 +109,7 @@ int main(int argc, char* argv[]){
   else if(duplicates == "true")
   {
   
-    //TODO: Add code to generate sorted input
+    //Code to generate sorted, duplicated permitted input
     //Option one
     //Generates values in a range [1, input_size -1]
     if(state == "sorted")
@@ -136,7 +146,7 @@ int main(int argc, char* argv[]){
       delete[] frequencyTable;
 
     }
- */   //TODO: Add code to generate reversely sorted input
+ */   //Code to generate reversely sorted, duplicates permitted input
     else if(state == "r_sorted")
     {
     	srand(time(NULL));
@@ -152,7 +162,7 @@ int main(int argc, char* argv[]){
       	}
 
     }
-    //TODO: Add code to generate randomized input
+    //Code to generate randomized, duplicates permitted input
     else if(state == "randomized"){
 	int leftToGo = input_size;
     	int numToPrint = 0;
