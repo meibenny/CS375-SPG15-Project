@@ -90,8 +90,17 @@ int main(int argc, char* argv[]){
   }
   else if(duplicates == "true"){
     //TODO: Add code to generate sorted input
+    if(state == "sorted"){
+
+    }
     //TODO: Add code to generate reversely sorted input
+    else if(state == "reversely_sorted"){
+
+    }
     //TODO: Add code to generate randomized input
+    else if(state == "randomized"){
+
+    }
   }
 
 
