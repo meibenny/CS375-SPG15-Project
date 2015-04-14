@@ -24,25 +24,10 @@ int main(int argc, char* argv[]){
   if(!correctArgumentFormat(argc, argv)){
     exit(1);
   }
-  cout<<"You've given correct arguments. Congratulations."<<std::endl;
-
   string inputFile = argv[1];
   vector<int> numbers;
-  ifstream input;
-  input.open(inputFile);if(!input.is_open())
-  {
-    cout << "Error opening input file. Exit." << endl; 
-    exit(1);
-  }
-  int eachNumber;
-  while(input >> eachNumber)
-  {
-    numbers.push_back(eachNumber);
-  }
-  input.close();
-  
+  readInputFile(inputFile, numbers);  
   sort(numbers.begin(), numbers.end());
-
   ofstream output;
   string outputFile = argv[2];
   output.open(outputFile);if(!output.is_open()){cout<<"Error opening output file. Exit."<<endl; exit(1);}
