@@ -24,19 +24,15 @@ int main(int argc, char* argv[]){
   if(!correctArgumentFormat(argc, argv)){
     exit(1);
   }
-  string inputFile = argv[1];
+  string input_file = argv[1];
   vector<int> numbers;
-  readInputFile(inputFile, numbers);  
+  int success = readInputFile(input_file, numbers);
+  //failed reading input file for whatever reason
+  if(success != 0){cout<<"Error reading input file. Exiting."<<endl; exit(1);}
   sort(numbers.begin(), numbers.end());
-  ofstream output;
-  string outputFile = argv[2];
-  output.open(outputFile);if(!output.is_open()){cout<<"Error opening output file. Exit."<<endl; exit(1);}
-
-  for(int i = 0; i < (int) numbers.size(); i++){
-    output << numbers[i] << endl;
-  }
-  output.close();
-
+  string output_file = argv[2];
+  success = outputToFile(output_file, numbers);
+  if(success != 0){cout<<"Error outputting to file. Exiting."<<endl; exit(1);}
   return 0;
 }
 

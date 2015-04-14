@@ -28,6 +28,34 @@ bool correctArgumentFormat(int argc, char* argv[]);
 */
 int readInputFile(string file_name, std::vector<int>&buffer);
 
+
+/* Can be called by sort functions to output sorted numbers to file.
+ * Reads output from int vector, buffer.
+ * returns 0 if operation completes successfully.
+ * returns 1 if operation fails for any reason
+ * Argument should be <output_file> <buffer>
+ * Where <output_file> is the file where numbers should be output
+ * Where <buffer> contains sorted numbers to be output
+ * outputToFile reads from <buffer> and outputs its content to file_name
+ *
+*/
+
+
+int outputToFile(string file_name, std::vector<int>&buffer);
+
+int outputToFile(string file_name, std::vector<int>&buffer){
+  ofstream output;
+  string output_file = file_name;
+  output.open(output_file);
+  if(!output.is_open()){return 0;}
+  for(int i = 0; i < (int) buffer.size(); i++)
+  {
+    output << buffer[i] << endl;
+  }
+  output.close();
+  return 0;
+}
+
 int readInputFile(string file_name, std::vector<int>& buffer){
   string input_file = file_name;
   ifstream input;
