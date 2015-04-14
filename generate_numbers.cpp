@@ -71,7 +71,7 @@ int main(int argc, char* argv[]){
   //	Last 3 cases are for duplicates permitted.
   */  
 
-if(duplicates == "false"){
+  if(duplicates == "false"){
 	//Code to generate sorted, no duplicate input
     if(state == "sorted"){
       for(int i = 0; i < input_size; i++){
@@ -108,7 +108,6 @@ if(duplicates == "false"){
   }
   else if(duplicates == "true")
   {
-  
     //Code to generate sorted, duplicated permitted input
     //Option one
     //Generates values in a range [1, input_size -1]
@@ -116,78 +115,56 @@ if(duplicates == "false"){
     {
     	srand(time(NULL));
     	for(int i = 0; i < input_size; i+= randomNumber)	
-      	{	
-		//This line needs to be fine tuned:
-		//Depending on how many duplicates we would like to 
-		//have in a row we can alter it
-		randomNumber = rand() % 10;
-  		//randomNumber = rand() % (input_size / 10);
+      {	
+		  //This line needs to be fine tuned:
+		  //Depending on how many duplicates we would like to 
+		  //have in a row we can alter it
+		    randomNumber = rand() % 10;
 
-		for(int j = 0; j < randomNumber; j++)
-		output << i + 1 << endl;
-      	}
-    }
-/*    //Option two
-    //Generates values in a range [0, input_size /2]
-    if(state == "sorted"){
-      int modulus = input_size / 2; //We use a modulus to guarantee that we will have duplicate values
-      int* frequencyTable = new int[modulus];
-      for(int i = 0; i < modulus; i++){
-        frequencyTable[i] = 0;
-      }
-      for(int i = 0; i < input_size; i++){
-        frequencyTable[i%modulus] += 1;
-      }
-      for(int i = 0; i < modulus; i++){
-        while(frequencyTable[i] > 0){
-          output << i << endl;
-          frequencyTable[i] -= 1;
+		    for(int j = 0; j < randomNumber; j++)
+		    {
+          output << i + 1 << endl;
         }
       }
-      delete[] frequencyTable;
-
     }
- */   //Code to generate reversely sorted, duplicates permitted input
+   //Code to generate reversely sorted, duplicates permitted input
     else if(state == "r_sorted")
     {
     	srand(time(NULL));
     	for(int i = input_size; i > 0; i-= randomNumber)	
-      	{	
-		//This line needs to be fine tuned:
-		//Depending on how many duplicates we would like to 
-		//have in a row we can alter it
-  		//randomNumber = rand() % (input_size / 10);
-		randomNumber = rand() % 10;
+      {	
+		    //This line needs to be fine tuned:
+		    //Depending on how many duplicates we would like to 
+		    //have in a row we can alter it
+  		  //randomNumber = rand() % (input_size / 10);
+		    randomNumber = rand() % 10;
  
- 		for(int j = 0; j < randomNumber; j++)
-		output << i  << endl;
-      	}
-
+ 		    for(int j = 0; j < randomNumber; j++)
+		    {
+          output << i  << endl;
+        }
+      }
     }
     //Code to generate randomized, duplicates permitted input
     else if(state == "randomized"){
-	int leftToGo = input_size;
+	    int leftToGo = input_size;
     	int numToPrint = 0;
-	srand(time(NULL));
-	
-	while(leftToGo > 0)
-	{
-		numToPrint = (rand() % input_size);
-		//Limit # of occurences of any single
-		//number to 5: can be fine tuned
-		randomNumber = rand() % 5;
-		for(int j = 0; j < randomNumber; j++)
-		{
-			output << numToPrint << endl;
-			leftToGo--;
-		}
-	}
+	    srand(time(NULL));
+	    while(leftToGo > 0)
+	    {
+		    numToPrint = (rand() % input_size);
+		    //Limit # of occurences of any single
+		    //number to 5: can be fine tuned
+		    randomNumber = rand() % 5;
+		    for(int j = 0; j < randomNumber; j++)
+		    {
+			    output << numToPrint << endl;
+			    leftToGo--;
+		    }
+	    }
     }
   }
-
   output.close();
-
-
   return 0;
 }
 
@@ -199,9 +176,7 @@ bool correctArgumentFormat(int argc, char *argv[]){
     std::cout<<USAGE_MESSAGE<<std::endl;
     return false;
   }
-  
   std::stringstream ss;
-
   //Check whether the first argument is an integer
   ss << argv[1];
   int inputSize; 
@@ -252,6 +227,5 @@ bool correctArgumentFormat(int argc, char *argv[]){
     return false;
   }
   ss.clear();
-
   return true;
 }
