@@ -43,13 +43,12 @@ void quicksort(std::vector<int> &A, int p, int r){
   bool debug = !true;
   if(debug){cout<<"p: "<<p<<" r: "<<r<<endl;}
   int q;
-  if(r - p < 2)
+  if(p < r)
   {
-    return;
+    q = partition(A, p, r);
+    quicksort(A, p, q);
+    quicksort(A, q+1, r);
   }
-  q = partition(A, p, r);
-  quicksort(A, p, q);
-  quicksort(A, q, r);
 }
 
 int partition(std::vector<int> &A, int p, int r){
