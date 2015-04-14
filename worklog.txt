@@ -11,4 +11,5 @@ Benny Mei
   Formal formation of project team
   Created github repository
   Wrote code to generate non duplicate input for sorting
-  Complete first implementation of quicksort with lomuto partioning
+  Complete first implementation of quicksort with lomuto partitioning
+  Complete first implementation of quicksort with random partitioning
