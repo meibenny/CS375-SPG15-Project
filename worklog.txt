@@ -4,8 +4,10 @@ David Skoda
   Project Idea Suggestions
   Project Proposal Draft
   Wrote code to generate duplicate input for sorting
+  Complete first implementation of mergesort
 Joseph Grillo
   Project Idea Suggestions
+  Complete first implementation of heapsort
 Benny Mei
   Project Idea Suggestions
   Formal formation of project team
@@ -13,3 +15,4 @@ Benny Mei
   Wrote code to generate non duplicate input for sorting
   Complete first implementation of quicksort with lomuto partitioning
   Complete first implementation of quicksort with random partitioning
+  Complete first implementation of quicksort with hoare partitioning
