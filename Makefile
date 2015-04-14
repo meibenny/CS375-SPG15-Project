@@ -8,7 +8,7 @@ SORT = sort
 
 all: $(GENERATE_NUMBERS) $(SORT)
 
-$(SORT): sort.cpp
+$(SORT): sort.cpp auxiliary_functions.cpp
 	$(COMPILER) $(CXXFLAGS) -o $(SORT) sort.cpp
 
 $(GENERATE_NUMBERS): generate_numbers.cpp

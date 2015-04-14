@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include "auxiliary_functions.cpp"
 using namespace std;
 /* Use this file to sort the automatically generated input
  *
@@ -17,8 +18,6 @@ using namespace std;
  * input-file is the file that needs to the sorted
  * output-file is the file that contains the sorted numbers from input-file
 */
-
-bool correctArgumentFormat(int argc, char* argv[]);
 
 int main(int argc, char* argv[]){
   
@@ -56,37 +55,3 @@ int main(int argc, char* argv[]){
   return 0;
 }
 
-bool correctArgumentFormat(int argc, char* argv[]){
-  int NUM_CORRECT_ARGUMENTS = 3;
-  string USAGE_MESSAGE = "USAGE: <input-file> <output-file>"; 
-
-  if(argc != NUM_CORRECT_ARGUMENTS){
-    cout<<"Expected "<<NUM_CORRECT_ARGUMENTS<<". Received "<<argc<<" arguments."<< endl;
-    cout << USAGE_MESSAGE << endl;
-    return false;
-  }
-
-  stringstream ss;
-  ss << argv[1];
-  string inputFile;
-  ss >> inputFile;
-  if(ss.fail()){
-    cout << "Error. input-file must be a string." << endl;
-    return false;
-  }
-  ifstream input;
-  input.open(inputFile);
-  if(!input.is_open()){
-    cout << "Error. input-file must exist." << endl;
-    return false;
-  }
-  ss.clear();
-  ss << argv[2];
-  string outputFile;
-  ss >> outputFile;
-  if(ss.fail()){
-    cout << "Error. output-file must be a string." << endl;
-    return false;
-  }
-  return true;
-}
