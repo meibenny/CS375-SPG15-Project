@@ -42,24 +42,16 @@ int main(int argc, char* argv[]){
   }
   input.close();
   
-  for(int i = 0; i < (int) numbers.size(); i++){
-    //cout << numbers[i] << endl;
-  }
-
   sort(numbers.begin(), numbers.end());
 
-  //cout << endl;
-  
   ofstream output;
   string outputFile = argv[2];
   output.open(outputFile);if(!output.is_open()){cout<<"Error opening output file. Exit."<<endl; exit(1);}
 
   for(int i = 0; i < (int) numbers.size(); i++){
-    //cout << numbers[i] << endl;
     output << numbers[i] << endl;
   }
   output.close();
-
 
   return 0;
 }
