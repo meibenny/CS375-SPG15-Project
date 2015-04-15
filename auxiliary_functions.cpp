@@ -5,7 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-
+#include <math.h>
 using namespace std;
 
 /* Returns true if the arguments given to program are correct.
@@ -27,6 +27,7 @@ bool correctArgumentFormat(int argc, char* argv[]);
  *
 */
 int readInputFile(string file_name, std::vector<int>&buffer);
+int readInputFileForMerge(string file_name, std::vector<int>&buffer);
 
 
 /* Can be called by sort functions to output sorted numbers to file.
@@ -65,6 +66,23 @@ int readInputFile(string file_name, std::vector<int>& buffer){
   if(!input.is_open()){return 1;}
 
   int eachNumber;
+  while(input >> eachNumber)
+  {
+    buffer.push_back(eachNumber);
+  }
+  input.close();
+  return 0;
+}
+int readInputFileForMerge(string file_name, std::vector<int>& buffer){
+  string input_file = file_name;
+  ifstream input;
+  input.open(input_file); 
+  
+  //input_file failed to open for any reason
+  if(!input.is_open()){return 1;}
+
+  int eachNumber;
+  buffer.push_back(0);
   while(input >> eachNumber)
   {
     buffer.push_back(eachNumber);
