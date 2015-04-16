@@ -15,7 +15,7 @@ vector<int> merge(vector<int> & vec, vector<int> & left, vector<int> & right);
 int main(int argc, char* argv[]){
 
 	vector<int> numbers;
-	
+
 	if(!correctArgumentFormat(argc, argv))
 	{
 		exit(1);
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
 		cout<<"error reading input file. exit."<<endl; 
 		exit(1);
 	}
-	
+
 
 
 	//Perform a mergesort
@@ -63,7 +63,7 @@ vector<int> mergeSort(vector<int> & a)
 	//Recursively call merge sort 
 	left = mergeSort(left);
 	right = mergeSort(right);
-	
+
 	return (merge(a, left, right));
 
 
@@ -88,7 +88,7 @@ vector<int> merge(vector<int> & vec, vector<int> & left, vector<int> & right)
 			r_rover++;
 		}	
 	}	
-	
+
 	//Place the numbers left over into the return vector
 	while(l_rover < left.size())
 	{
@@ -103,68 +103,5 @@ vector<int> merge(vector<int> & vec, vector<int> & left, vector<int> & right)
 
 	}
 
-		return mergeVec;
+	return mergeVec;
 }
-/*//Sorts a vector [p, r] recursively
-void mergeSort(vector<int> &a, int p, int r)
-{
-	if(p < r)
-	{
-		int q = floor((p + r) /2);
-		mergeSort(a, p, q);
-		mergeSort(a, q+1, r);			
-		merge(a, p, q, r);	
-	
-	}
-
-
-}
-
-
-void merge(vector<int> &a, int p, int q, int r)
-{
-	cerr << "in merge" << endl;
-	int n = q - p + 1;
-	int m = r - q;
-
-	vector<int> left, right;
-	left.resize(n+2);
-	right.resize(m+2);
-	for(int i = 1 : n)
-	{
-		left.at(i) = a[p + i -1];
-	}
-	for(int j = 1: m)
-	{
-		right.at(j) = a[q + j];
-	}
-		
-	left.at(n + 1) = (INT_MAX);
-	right.at(m + 1) = (INT_MAX);
-
-	int i = 1, j = 1;
-
-	for(int k = p : r)
-	{
-		if(left[i] <= right[j])
-		{
-			a[k] = left[i];
-			i++;
-		}
-		else
-		{
-			a[k] = right[j];
-			j++;
-		}
-	}
-
-
-}
-*/
-
-
-
-
-
-
-
