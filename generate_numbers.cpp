@@ -186,6 +186,11 @@ bool correctArgumentFormat(int argc, char *argv[]){
     std::cout<<USAGE_MESSAGE<<std::endl;
     return false;
   }
+  if(inputSize <= 0){
+    std::cout<<"Error. size_of_input must be greater than 0."<<std::endl;
+    std::cout<<USAGE_MESSAGE<<std::endl;
+    return false;
+  }
   //Test whether the "state" arguement is correct
   ss.clear();
   std::string stateString;
