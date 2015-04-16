@@ -16,4 +16,4 @@ Where <duplicates> is one of true or false
 Where <algorithm> is the algorithm used to sort the output
 
 For example, when sorting the file, "32_random_false.txt" with mergesort,
-Name the file: 32random_false_mergesort.txt
+Name the file: 32_random_false_mergesort.txt
