@@ -6,7 +6,7 @@ David Skoda
   Wrote code to generate duplicate input for sorting
   Complete first implementation of mergesort
   Contributed to code styling guidelines
-	Implemented Timing code into all sorts
+  Implemented Timing code into all sorts
 Joseph Grillo
   Project Idea Suggestions
   Complete first implementation of heapsort
