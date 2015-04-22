@@ -1,7 +1,7 @@
 /* Implementation of merge sort.
  *
  */
-
+#include "timer.cpp"
 #include "auxiliary_functions.cpp"
 #include <vector>
 #include <climits>
@@ -31,8 +31,13 @@ int main(int argc, char* argv[]){
 
 
 	//Perform a mergesort
+	struct timeval start;
+	struct timeval end;
+	
+	start = startTime(&start);
 	numbers = mergeSort(numbers);		
-
+	end = endTime(&end);
+	calculateTime(&start, &end);
 
 
 
