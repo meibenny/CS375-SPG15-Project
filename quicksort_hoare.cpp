@@ -52,7 +52,7 @@ void quicksort(std::vector<int> &A, int p, int r){
 }
 
 int partition(std::vector<int> &A, int p, int r){
-  bool debug = true;
+  bool debug = !true;
   if(debug){cout<<"in partition"<<endl;}
   if(debug)
   {
