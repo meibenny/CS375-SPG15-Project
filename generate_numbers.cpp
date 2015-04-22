@@ -143,7 +143,7 @@ int main(int argc, char* argv[]){
 
         for(int j = 0; j < randomNumber && k < input_size; j++)
         {
-          output << i  << endl;
+        	output << i  << endl;
           k++;
         }
       }

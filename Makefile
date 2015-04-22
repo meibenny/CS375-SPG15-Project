@@ -19,7 +19,7 @@ all: $(GENERATE_NUMBERS) $(SORT) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) 
 $(HEAP_SORT): heapsort.cpp $(AUX_FUNCTIONS)
 	$(COMPILER) $(CXXFLAGS) -o $(HEAP_SORT) heapsort.cpp
 
-$(MERGE_SORT): mergesort.cpp $(AUX_FUNCTIONS) $(TIMER) 
+$(MERGE_SORT): mergesort.cpp $(AUX_FUNCTIONS) 
 	$(COMPILER) $(CXXFLAGS) -o $(MERGE_SORT) mergesort.cpp
 
 $(QSORT_RANDOM): quicksort_random.cpp $(AUX_FUNCTIONS)

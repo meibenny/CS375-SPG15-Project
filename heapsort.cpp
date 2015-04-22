@@ -1,6 +1,6 @@
 #include "auxiliary_functions.cpp"
 #include <vector>
-
+#include "timer.cpp"
 using namespace std;
 
 void maxHeapify(vector<int>& arr, int index, int numEle){
@@ -54,8 +54,18 @@ int main(int argc, char * argv[]){
 	//here i am inserting an initial 0 to make the vector work properly with the heapsort implementation
 	//i use the literal index 
 	numbers.insert(numbers.begin(), 0);
+
+
+
+
+  struct timeval start;
+  struct timeval end; 
+  start = startTime(&start);
 	heapsort(numbers, numbers.size()-1);
-	//get rid of the initial 0 so that its not printed out
+	end = endTime(&end);
+  calculateTime(&start, &end);
+	
+//get rid of the initial 0 so that its not printed out
 	numbers.erase(numbers.begin());
 	string output_file = argv[2];
 	success = outputToFile(output_file, numbers);

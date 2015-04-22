@@ -2,6 +2,7 @@
  *
 */
 #include "auxiliary_functions.cpp"
+#include "timer.cpp"
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -27,7 +28,13 @@ int main(int argc, char* argv[]){
   int array_first = 0;
   int array_last  = (int) numbers.size()-1;
   if(debug){for(auto e: numbers){cout<<e<<endl;}}
+
+	struct timeval start, end;
+  start = startTime(&start);
   quicksort(numbers, array_first, array_last);
+	end = endTime(&end);
+  calculateTime(&start, &end);
+
   if(debug){for(auto e: numbers){cout<<e<<endl;}}
   string output_file = argv[2];
   success = outputToFile(output_file, numbers);
