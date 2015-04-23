@@ -18,20 +18,27 @@ int main(int argc, char* argv[]){
   }
   std::vector<int> numbers;
   string input_file = argv[1];
-  int success = readInputFile(input_file, numbers);
-  if(success != 0)
-  {
-    cout<<"error reading input file. exit."<<endl; 
-    exit(1);
-  }
-  //implement quicksort
-  int array_first = 0;
-  int array_last  = (int) numbers.size()-1;
-  if(debug){for(auto e: numbers){cout<<e<<endl;}}
+  int success;
+  
   struct timeval start, end;
   start = startTime(&start);
 
-  quicksort(numbers, array_first, array_last);
+  for(int i = 0; i < 20; i++)
+  {
+    success = readInputFile(input_file, numbers);
+    if(success != 0)
+    {
+      cout<<"error reading input file. exit."<<endl; 
+      exit(1);
+    }
+    //implement quicksort
+    int array_first = 0;
+    int array_last  = (int) numbers.size()-1;
+    if(debug){for(auto e: numbers){cout<<e<<endl;}}
+    
+    quicksort(numbers, array_first, array_last);
+    numbers.clear();
+  }
   end = endTime(&end);
 	calculateTime(&start, &end);
 
