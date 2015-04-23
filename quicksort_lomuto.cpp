@@ -25,6 +25,7 @@ int main(int argc, char* argv[]){
   int success;
   for(int i = 0; i < 20; i++)
   {
+    numbers.clear();
     success = readInputFile(input_file, numbers);
     if(success != 0)
     {
@@ -37,7 +38,6 @@ int main(int argc, char* argv[]){
     if(debug){for(auto e: numbers){cout<<e<<endl;}}
 
 	  quicksort(numbers, array_first, array_last);
-    numbers.clear();
   }
 	end = endTime(&end);
   cout<<input_file<<": ";

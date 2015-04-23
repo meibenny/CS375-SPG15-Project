@@ -53,6 +53,9 @@ int main(int argc, char * argv[]){
   int success;
   for(int i = 0; i < 20; i++)
   {
+    
+    numbers.clear();
+    
     //here i am inserting an initial 0 to make the vector work properly with the heapsort implementation
 	  //i use the literal index 
 	  numbers.insert(numbers.begin(), 0);
@@ -65,7 +68,6 @@ int main(int argc, char * argv[]){
 	  }
 	
  	  heapsort(numbers, numbers.size()-1);
-    numbers.clear();
 	}
   end = endTime(&end);
   cout<<input_file<<": ";
