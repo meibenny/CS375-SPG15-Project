@@ -46,23 +46,29 @@ int main(int argc, char * argv[]){
 	}
 	std::vector<int>numbers;
 	string input_file = argv[1];
-	int success = readInputFile(input_file, numbers);
-	if(success != 0){
-		cout<<"error reading input file. exit."<<endl;
-		exit(1);
-	}
-	//here i am inserting an initial 0 to make the vector work properly with the heapsort implementation
-	//i use the literal index 
-	numbers.insert(numbers.begin(), 0);
-
-
-
-
+  
   struct timeval start;
   struct timeval end; 
   start = startTime(&start);
-	heapsort(numbers, numbers.size()-1);
-	end = endTime(&end);
+  int success;
+  for(int i = 0; i < 20; i++)
+  {
+    //here i am inserting an initial 0 to make the vector work properly with the heapsort implementation
+	  //i use the literal index 
+	  numbers.insert(numbers.begin(), 0);
+
+	  success = readInputFile(input_file, numbers);
+	  if(success != 0)
+    {
+		  cout<<"error reading input file. exit."<<endl;
+		  exit(1);
+	  }
+	
+ 	  heapsort(numbers, numbers.size()-1);
+    numbers.clear();
+	}
+  end = endTime(&end);
+  cout<<input_file<<": ";
   calculateTime(&start, &end);
 	
 //get rid of the initial 0 so that its not printed out
