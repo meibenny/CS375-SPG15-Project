@@ -70,7 +70,6 @@ int main(int argc, char * argv[]){
  	  heapsort(numbers, numbers.size()-1);
 	}
   end = endTime(&end);
-  cout<<input_file<<": ";
   calculateTime(&start, &end);
 	
 //get rid of the initial 0 so that its not printed out
