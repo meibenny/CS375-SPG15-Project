@@ -40,7 +40,6 @@ int main(int argc, char* argv[]){
 	  quicksort(numbers, array_first, array_last);
   }
 	end = endTime(&end);
-  cout<<input_file<<": ";
   calculateTime(&start, &end);
 
   if(debug){for(auto e: numbers){cout<<e<<endl;}}
