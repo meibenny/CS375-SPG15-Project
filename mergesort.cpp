@@ -21,25 +21,26 @@ int main(int argc, char* argv[]){
 		exit(1);
 	}
 	string input_file = argv[1];
-	int success = readInputFile(input_file, numbers);
-	if(success != 0)
-	{
-		cout<<"error reading input file. exit."<<endl; 
-		exit(1);
-	}
-
-
-
-	//Perform a mergesort
-	struct timeval start;
+	int success;
+  struct timeval start;
 	struct timeval end;
-	
 	start = startTime(&start);
-	numbers = mergeSort(numbers);		
+
+  for(int i = 0; i < 20; i++)
+  {
+    numbers.clear();
+    success = readInputFile(input_file, numbers);
+	  if(success != 0)
+	  {
+		  cout<<"error reading input file. exit."<<endl; 
+		  exit(1);
+	  }
+
+	  //Perform a mergesort
+	  numbers = mergeSort(numbers);
+  }
 	end = endTime(&end);
 	calculateTime(&start, &end);
-
-
 
 	string output_file = argv[2];
 	success = outputToFile(output_file, numbers);
