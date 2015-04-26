@@ -117,7 +117,7 @@ generate-dup:
 	./generate_numbers 524288 random true tests/testfiles/524288_random_true.txt
 	./generate_numbers 1000000 random true tests/testfiles/100000_random_true.txt
 
-test-no-dup:
+test-no-dup-sorted:
 	./quicksort_lomuto tests/testfiles/1_sorted_false.txt tests/results/1_sorted_false_qsort_lomuto.txt
 	./quicksort_hoare tests/testfiles/1_sorted_false.txt tests/results/1_sorted_false_qsort_hoare.txt
 	./quicksort_random tests/testfiles/1_sorted_false.txt tests/results/1_sorted_false_qsort_random.txt
@@ -178,6 +178,8 @@ test-no-dup:
 	./quicksort_random tests/testfiles/1000000_sorted_false.txt tests/results/1000000_sorted_false_qsort_random.txt
 	./mergesort tests/testfiles/1000000_sorted_false.txt tests/results/1000000_sorted_false_mergesort.txt
 	./heapsort tests/testfiles/1000000_sorted_false.txt tests/results/1000000_sorted_false_heapsort.txt
+
+test-no-dup-r-sorted:
 	./quicksort_lomuto tests/testfiles/1_r-sorted_false.txt tests/results/1_r-sorted_false_qsort_lomuto.txt
 	./quicksort_hoare tests/testfiles/1_r-sorted_false.txt tests/results/1_r-sorted_false_qsort_hoare.txt
 	./quicksort_random tests/testfiles/1_r-sorted_false.txt tests/results/1_r-sorted_false_qsort_random.txt
@@ -238,6 +240,8 @@ test-no-dup:
 	./quicksort_random tests/testfiles/1000000_r-sorted_false.txt tests/results/1000000_r-sorted_false_qsort_random.txt
 	./mergesort tests/testfiles/1000000_r-sorted_false.txt tests/results/1000000_r-sorted_false_mergesort.txt
 	./heapsort tests/testfiles/1000000_r-sorted_false.txt tests/results/1000000_r-sorted_false_heapsort.txt
+
+test-no-dup-random:
 	./quicksort_lomuto tests/testfiles/1_random_false.txt tests/results/1_random_false_qsort_lomuto.txt
 	./quicksort_hoare tests/testfiles/1_random_false.txt tests/results/1_random_false_qsort_hoare.txt
 	./quicksort_random tests/testfiles/1_random_false.txt tests/results/1_random_false_qsort_random.txt
