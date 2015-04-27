@@ -59,7 +59,7 @@ void calcAvgTime(vector<float>& times)
 
   cout << "Number of runs: " << times.size() << endl;
   cout << "Average time: " << sum/ times.size() << endl;
-
+	cout << endl;
 }
 
 

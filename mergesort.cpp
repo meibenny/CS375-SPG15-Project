@@ -22,6 +22,11 @@ int main(int argc, char* argv[]){
 	}
 	string input_file = argv[1];
 	int success;
+
+	/*
+	 *  Begin timing sequence of:
+	 *  Mergesort
+	 */
 	int numRuns = 20;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
@@ -43,6 +48,11 @@ int main(int argc, char* argv[]){
 		end[i] = endTime(&end[i]);
 		time.push_back(calculateTime(&start[i], &end[i]));
 	}
+	calcAvgTime(time);
+	/*
+	 *  End timing sequence of:
+	 *  Mergesort
+	 */
 
 	string output_file = argv[2];
 	success = outputToFile(output_file, numbers);
@@ -51,7 +61,6 @@ int main(int argc, char* argv[]){
 		cout<<"error outputtting to file. exit."<<endl;
 		exit(1);
 	}
-	calcAvgTime(time);
 
 
 	return 0;

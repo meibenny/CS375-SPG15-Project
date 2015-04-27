@@ -20,7 +20,7 @@ using namespace std;
  * output_file is a file where the dataset should be written
  * 
  * size_of_input may be any integer.
- * state may be one of: sorted, r_sorted, randomized.
+ * state may be one of: sorted, r_sorted, random.
  * duplicates may be one of: true, false.
  * output_file may be any string.
  *
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]){
       }
     }
     //Code to generate randomized, no duplicate input
-    else if(state == "randomized")
+    else if(state == "random")
     {
       bool debug = false;
       srand(time(NULL));
@@ -149,7 +149,7 @@ int main(int argc, char* argv[]){
       }
     }
     //Code to generate randomized, duplicates permitted input
-    else if(state == "randomized"){
+    else if(state == "random"){
       int leftToGo = input_size;
       int numToPrint = 0;
       srand(time(NULL));
@@ -206,8 +206,8 @@ bool correctArgumentFormat(int argc, char *argv[]){
   }
   if(!(stateString == "sorted" || 
         stateString == "r_sorted" || 
-        stateString == "randomized")){
-    std::cout<<"Error. state must be either \"sorted\", \"r_sorted\", or \"randomized\"."<<std::endl;
+        stateString == "random")){
+    std::cout<<"Error. state must be either \"sorted\", \"r_sorted\", or \"random\"."<<std::endl;
     return false;
   }
   //Test whether the "duplicates" arguement is correct

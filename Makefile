@@ -80,7 +80,6 @@ generate-no-dup:
 	./generate_numbers 1000000 random false tests/testfiles/100000_random_false.txt
 
 generate-dup:
-	./generate_numbers 1 sorted true tests/testfiles/1_sorted_true.txt
 	./generate_numbers 2 sorted true tests/testfiles/2_sorted_true.txt
 	./generate_numbers 16 sorted true tests/testfiles/16_sorted_true.txt
 	./generate_numbers 32 sorted true tests/testfiles/32_sorted_true.txt
@@ -92,7 +91,6 @@ generate-dup:
 	./generate_numbers 65536 sorted true tests/testfiles/65536_sorted_true.txt
 	./generate_numbers 524288 sorted true tests/testfiles/524288_sorted_true.txt
 	./generate_numbers 1000000 sorted true tests/testfiles/100000_sorted_true.txt
-	./generate_numbers 1 r_sorted true tests/testfiles/1_r-sorted_true.txt
 	./generate_numbers 2 r_sorted true tests/testfiles/2_r-sorted_true.txt
 	./generate_numbers 16 r_sorted true tests/testfiles/16_r-sorted_true.txt
 	./generate_numbers 32 r_sorted true tests/testfiles/32_r-sorted_true.txt
@@ -104,7 +102,6 @@ generate-dup:
 	./generate_numbers 65536 r_sorted true tests/testfiles/65536_r-sorted_true.txt
 	./generate_numbers 524288 r_sorted true tests/testfiles/524288_r-sorted_true.txt
 	./generate_numbers 1000000 r_sorted true tests/testfiles/100000_r-sorted_true.txt
-	./generate_numbers 1 random true tests/testfiles/1_random_true.txt
 	./generate_numbers 2 random true tests/testfiles/2_random_true.txt
 	./generate_numbers 16 random true tests/testfiles/16_random_true.txt
 	./generate_numbers 32 random true tests/testfiles/32_random_true.txt
