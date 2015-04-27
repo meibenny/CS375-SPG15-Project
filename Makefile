@@ -294,6 +294,65 @@ test-no-dup-r-sorted:
 	./quicksort_random tests/testfiles/1000000_r-sorted_false.txt tests/results/1000000_r-sorted_false_qsort_random.txt
 	./mergesort tests/testfiles/1000000_r-sorted_false.txt tests/results/1000000_r-sorted_false_mergesort.txt
 	./heapsort tests/testfiles/1000000_r-sorted_false.txt tests/results/1000000_r-sorted_false_heapsort.txt
+	
+test-dup-r-sorted:
+	./quicksort_lomuto tests/testfiles/2_r-sorted_true.txt tests/results/2_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/2_r-sorted_true.txt tests/results/2_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/2_r-sorted_true.txt tests/results/2_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/2_r-sorted_true.txt tests/results/2_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/2_r-sorted_true.txt tests/results/2_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/16_r-sorted_true.txt tests/results/16_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/16_r-sorted_true.txt tests/results/16_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/16_r-sorted_true.txt tests/results/16_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/16_r-sorted_true.txt tests/results/16_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/16_r-sorted_true.txt tests/results/16_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/32_r-sorted_true.txt tests/results/32_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/32_r-sorted_true.txt tests/results/32_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/32_r-sorted_true.txt tests/results/32_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/32_r-sorted_true.txt tests/results/32_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/32_r-sorted_true.txt tests/results/32_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/128_r-sorted_true.txt tests/results/128_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/128_r-sorted_true.txt tests/results/128_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/128_r-sorted_true.txt tests/results/128_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/128_r-sorted_true.txt tests/results/128_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/128_r-sorted_true.txt tests/results/128_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/512_r-sorted_true.txt tests/results/512_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/512_r-sorted_true.txt tests/results/512_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/512_r-sorted_true.txt tests/results/512_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/512_r-sorted_true.txt tests/results/512_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/512_r-sorted_true.txt tests/results/512_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/1024_r-sorted_true.txt tests/results/1024_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/1024_r-sorted_true.txt tests/results/1024_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/1024_r-sorted_true.txt tests/results/1024_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/1024_r-sorted_true.txt tests/results/1024_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/1024_r-sorted_true.txt tests/results/1024_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/4096_r-sorted_true.txt tests/results/4096_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/4096_r-sorted_true.txt tests/results/4096_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/4096_r-sorted_true.txt tests/results/4096_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/4096_r-sorted_true.txt tests/results/4096_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/4096_r-sorted_true.txt tests/results/4096_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/16348_r-sorted_true.txt tests/results/16348_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/16348_r-sorted_true.txt tests/results/16348_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/16348_r-sorted_true.txt tests/results/16348_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/16348_r-sorted_true.txt tests/results/16348_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/16348_r-sorted_true.txt tests/results/16348_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/65536_r-sorted_true.txt tests/results/65536_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/65536_r-sorted_true.txt tests/results/65536_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/65536_r-sorted_true.txt tests/results/65536_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/65536_r-sorted_true.txt tests/results/65536_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/65536_r-sorted_true.txt tests/results/65536_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/524288_r-sorted_true.txt tests/results/524288_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/524288_r-sorted_true.txt tests/results/524288_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/524288_r-sorted_true.txt tests/results/524288_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/524288_r-sorted_true.txt tests/results/524288_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/524288_r-sorted_true.txt tests/results/524288_r-sorted_true_heapsort.txt
+	./quicksort_lomuto tests/testfiles/1000000_r-sorted_true.txt tests/results/1000000_r-sorted_true_qsort_lomuto.txt
+	./quicksort_hoare tests/testfiles/1000000_r-sorted_true.txt tests/results/1000000_r-sorted_true_qsort_hoare.txt
+	./quicksort_random tests/testfiles/1000000_r-sorted_true.txt tests/results/1000000_r-sorted_true_qsort_random.txt
+	./mergesort tests/testfiles/1000000_r-sorted_true.txt tests/results/1000000_r-sorted_true_mergesort.txt
+	./heapsort tests/testfiles/1000000_r-sorted_true.txt tests/results/1000000_r-sorted_true_heapsort.txt
+
+
 
 test-no-dup-random:
 	./quicksort_lomuto tests/testfiles/2_random_false.txt tests/results/2_random_false_qsort_lomuto.txt
