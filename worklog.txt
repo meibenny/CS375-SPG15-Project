@@ -7,6 +7,7 @@ David Skoda
   Complete first implementation of mergesort
   Contributed to code styling guidelines
   Implemented Timing code into all sorts
+  Edited Makefile to support testing
 Joseph Grillo
   Project Idea Suggestions
   Complete first implementation of heapsort
@@ -20,3 +21,4 @@ Benny Mei
   Complete first implementation of quicksort with random partitioning
   Complete first implementation of quicksort with hoare partitioning
   Contributed to code styling guidelines
+  Edited Makefile to support testing
