@@ -2,7 +2,9 @@ Text file containing individual contributions of members
 
 David Skoda
   Project Idea Suggestions
+  
   Project Proposal Draft
+  
   Wrote code to generate duplicate input for sorting
   Complete first implementation of mergesort
   Contributed to code styling guidelines
