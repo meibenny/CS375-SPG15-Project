@@ -20,8 +20,15 @@ int main(int argc, char* argv[]){
 		exit(1);
 	}
 	std::vector<int> numbers;
+	vector<int> holder;
 	string input_file = argv[1];
 	int success;
+success = readInputFile(input_file, holder);
+  if(success != 0)
+  { 
+    cout<<"error reading input file. exit."<<endl;
+    exit(1);
+  } 
 
 	/*
 	 *  Begin timing sequence of:
@@ -35,12 +42,7 @@ int main(int argc, char* argv[]){
 	for(int i = 0; i < numRuns; i++)
 	{
 		numbers.clear();
-		success = readInputFile(input_file, numbers);
-		if(success != 0)
-		{
-			cout<<"error reading input file. exit."<<endl;
-			exit(1);
-		}
+		numbers.assign(holder.begin(), holder.end());
 		int array_first = 0;
 		int array_last  = (int) numbers.size()-1;
 

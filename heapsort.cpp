@@ -45,8 +45,16 @@ int main(int argc, char * argv[]){
 		exit(1);
 	}
 	std::vector<int>numbers;
+	vector<int> holder;
 	string input_file = argv[1];
 	int success = 0;
+	success = readInputFile(input_file, holder);
+	if(success != 0)
+	{
+		cout<<"error reading input file. exit."<<endl; 
+		exit(1);
+	}
+
 	/*
 	 *  Begin timing sequence of:
 	 *  Heapsort
@@ -59,35 +67,30 @@ int main(int argc, char * argv[]){
 	for(int i = 0; i < numRuns; i++)
 	{
 		numbers.clear();
-		numbers.insert(numbers.begin(), 0); 
-		success = readInputFile(input_file, numbers);
-		if(success != 0)
-		{
-			cout<<"error reading input file. exit."<<endl; 
-			exit(1);
-		}
-		start[i] = startTime(&start[i]);
+		numbers.assign(holder.begin(), holder.end());		
+				numbers.insert(numbers.begin(), 0); 
+				start[i] = startTime(&start[i]);
 
-		//Perform a heapsort
-		heapsort(numbers, numbers.size()-1);
-		end[i] = endTime(&end[i]);
-		time.push_back(calculateTime(&start[i], &end[i]));
-	}
-	calcAvgTime(time);
-	/*
-	 *  End timing sequence of:
-	 *  Heapsort
-	 */
+				//Perform a heapsort
+				heapsort(numbers, numbers.size()-1);
+				end[i] = endTime(&end[i]);
+				time.push_back(calculateTime(&start[i], &end[i]));
+				}
+				calcAvgTime(time);
+				/*
+				 *  End timing sequence of:
+				 *  Heapsort
+				 */
 
 
-	//get rid of the initial 0 so that its not printed out
-	numbers.erase(numbers.begin());
-	string output_file = argv[2];
-	success = outputToFile(output_file, numbers);
-	if(success != 0){
-		cout<<"error outputting to file. exit."<< endl;
-		exit(1);
-	}
+				//get rid of the initial 0 so that its not printed out
+				numbers.erase(numbers.begin());
+				string output_file = argv[2];
+				success = outputToFile(output_file, numbers);
+				if(success != 0){
+					cout<<"error outputting to file. exit."<< endl;
+					exit(1);
+				}
 
-	return 0;
+				return 0;
 }

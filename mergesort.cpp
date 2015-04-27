@@ -15,13 +15,19 @@ vector<int> merge(vector<int> & vec, vector<int> & left, vector<int> & right);
 int main(int argc, char* argv[]){
 
 	vector<int> numbers;
-
+	vector<int> holder;
 	if(!correctArgumentFormat(argc, argv))
 	{
 		exit(1);
 	}
 	string input_file = argv[1];
 	int success;
+	success = readInputFile(input_file, holder);
+	if(success != 0)
+	{
+		cout<<"error reading input file. exit."<<endl; 
+		exit(1);
+	}
 
 	/*
 	 *  Begin timing sequence of:
@@ -35,12 +41,7 @@ int main(int argc, char* argv[]){
 	for(int i = 0; i < numRuns; i++)
 	{
 		numbers.clear();
-		success = readInputFile(input_file, numbers);
-		if(success != 0)
-		{
-			cout<<"error reading input file. exit."<<endl; 
-			exit(1);
-		}
+		numbers.assign(holder.begin(), holder.end());
 		start[i] = startTime(&start[i]);
 
 		//Perform a mergesort

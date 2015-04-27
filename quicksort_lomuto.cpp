@@ -11,16 +11,20 @@ void quicksort(std::vector<int> &A, int p, int r);
 int partition(std::vector<int> &A, int p, int r);
 
 int main(int argc, char* argv[]){
-	bool debug = !true;
 	if(!correctArgumentFormat(argc, argv))
 	{
 		exit(1);
 	}
 	std::vector<int> numbers;
+	vector<int> holder;
 	string input_file = argv[1];
-
-
 	int success;
+	success = readInputFile(input_file, holder);
+	if(success != 0)
+	{
+		cout<<"error reading input file. exit."<<endl;
+		exit(1);
+	}
 	/*
 	 *  Begin timing sequence of:
 	 *  Quicksort (lomuto)
@@ -33,12 +37,7 @@ int main(int argc, char* argv[]){
 	for(int i = 0; i < numRuns; i++)
 	{
 		numbers.clear();
-		success = readInputFile(input_file, numbers);
-		if(success != 0)
-		{
-			cout<<"error reading input file. exit."<<endl;
-			exit(1);
-		}
+		numbers.assign(holder.begin(), holder.end());	
 		int array_first = 0;
 		int array_last  = (int) numbers.size()-1;
 
@@ -54,7 +53,6 @@ int main(int argc, char* argv[]){
 	 *  Quicksort (lomuto)
 	 */
 
-	if(debug){for(auto e: numbers){cout<<e<<endl;}}
 	string output_file = argv[2];
 	success = outputToFile(output_file, numbers);
 	if(success != 0)
@@ -66,8 +64,6 @@ int main(int argc, char* argv[]){
 }
 
 void quicksort(std::vector<int> &A, int p, int r){
-	bool debug = !true;
-	if(debug){cout<<"p: "<<p<<" r: "<<r<<endl;}
 	int q;
 	if(p < r)
 	{
@@ -78,10 +74,8 @@ void quicksort(std::vector<int> &A, int p, int r){
 }
 
 int partition(std::vector<int> &A, int p, int r){
-	bool debug = !true;
 	int x = A[r];
 	int i = p-1;
-	if(debug){cout<<"x: "<<x<<" i: "<<i<<endl;}
 	for(int j = p; j < r; j++)
 	{
 		if(A[j] <= x)
