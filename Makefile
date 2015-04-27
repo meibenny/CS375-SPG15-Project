@@ -176,12 +176,7 @@ test-no-dup-sorted:
 	./mergesort tests/testfiles/1000000_sorted_false.txt tests/results/1000000_sorted_false_mergesort.txt
 	./heapsort tests/testfiles/1000000_sorted_false.txt tests/results/1000000_sorted_false_heapsort.txt
 
-test-dup-sorted
-./quicksort_lomuto tests/testfiles/1_sorted_true.txt tests/results/1_sorted_true_qsort_lomuto.txt
-	./quicksort_hoare tests/testfiles/1_sorted_true.txt tests/results/1_sorted_true_qsort_hoare.txt
-	./quicksort_random tests/testfiles/1_sorted_true.txt tests/results/1_sorted_true_qsort_random.txt
-	./mergesort tests/testfiles/1_sorted_true.txt tests/results/1_sorted_true_mergesort.txt
-	./heapsort tests/testfiles/1_sorted_true.txt tests/results/1_sorted_true_heapsort.txt
+test-dup-sorted:
 	./quicksort_lomuto tests/testfiles/2_sorted_true.txt tests/results/2_sorted_true_qsort_lomuto.txt
 	./quicksort_hoare tests/testfiles/2_sorted_true.txt tests/results/2_sorted_true_qsort_hoare.txt
 	./quicksort_random tests/testfiles/2_sorted_true.txt tests/results/2_sorted_true_qsort_random.txt
