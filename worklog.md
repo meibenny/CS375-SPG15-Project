@@ -8,10 +8,12 @@ David Skoda
   Contributed to code styling guidelines
   Implemented Timing code into all sorts
   Edited Makefile to support testing
+  
 Joseph Grillo
   Project Idea Suggestions
   Complete first implementation of heapsort
   Contributed to code styling guidelines
+  
 Benny Mei
   Project Idea Suggestions
   Formal formation of project team
