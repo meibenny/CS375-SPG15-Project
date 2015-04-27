@@ -43,6 +43,26 @@ int readInputFile(string file_name, std::vector<int>&buffer);
 
 int outputToFile(string file_name, std::vector<int>&buffer);
 
+/* Using an float vector of runtimes for any given sort, calculate the
+ * average time for that set of runs.
+*/
+
+void calcAvgTime(vector<float>& times);
+
+void calcAvgTime(vector<float>& times)
+{
+  float sum = 0;
+  for(u_int i = 0; i < times.size(); i++)
+  {
+    sum += times[i];
+  }
+
+  cout << "Number of runs: " << times.size() << endl;
+  cout << "Average time: " << sum/ times.size() << endl;
+
+}
+
+
 int outputToFile(string file_name, std::vector<int>&buffer){
   ofstream output;
   string output_file = file_name;

@@ -22,25 +22,27 @@ int main(int argc, char* argv[]){
 	}
 	string input_file = argv[1];
 	int success;
-  struct timeval start;
-	struct timeval end;
-	start = startTime(&start);
+	int numRuns = 20;
+	struct timeval start[numRuns];
+	struct timeval end[numRuns];
 
-  for(int i = 0; i < 20; i++)
-  {
-    numbers.clear();
-    success = readInputFile(input_file, numbers);
-	  if(success != 0)
-	  {
-		  cout<<"error reading input file. exit."<<endl; 
-		  exit(1);
-	  }
+	vector<float> time;
+	for(int i = 0; i < numRuns; i++)
+	{
+		numbers.clear();
+		success = readInputFile(input_file, numbers);
+		if(success != 0)
+		{
+			cout<<"error reading input file. exit."<<endl; 
+			exit(1);
+		}
+		start[i] = startTime(&start[i]);
 
-	  //Perform a mergesort
-	  numbers = mergeSort(numbers);
-  }
-	end = endTime(&end);
-	calculateTime(&start, &end);
+		//Perform a mergesort
+		numbers = mergeSort(numbers);
+		end[i] = endTime(&end[i]);
+		time.push_back(calculateTime(&start[i], &end[i]));
+	}
 
 	string output_file = argv[2];
 	success = outputToFile(output_file, numbers);
@@ -49,7 +51,7 @@ int main(int argc, char* argv[]){
 		cout<<"error outputtting to file. exit."<<endl;
 		exit(1);
 	}
-
+	calcAvgTime(time);
 
 
 	return 0;

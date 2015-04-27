@@ -9,7 +9,7 @@ struct timeval startTime(struct timeval * start);
 
 struct timeval endTime(struct timeval * end);
 
-void calculateTime(struct timeval * t1, struct timeval * t2);
+float calculateTime(struct timeval * t1, struct timeval * t2);
 
 
 
@@ -28,10 +28,10 @@ struct timeval endTime(struct timeval * end)
 
 }
 
-void calculateTime(struct timeval *t1, struct timeval *t2)
+float calculateTime(struct timeval *t1, struct timeval *t2)
 {
   std::cout << "Time in microseconds: " << ((t2->tv_sec - t1->tv_sec)*1000000L +t2->tv_usec) - t1->tv_usec << std::endl;
 
-
+  return ((t2->tv_sec - t1->tv_sec)*1000000L +t2->tv_usec) - t1->tv_usec;
 }
 
