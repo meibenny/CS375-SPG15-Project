@@ -4,7 +4,7 @@
 #include <climits>
 using namespace std;
 
-void quicksort(vector<int> &A, int p, int r);
+void quicksortMedian(vector<int> &A, int p, int r);
 int medianOfThreePartition(vector<int> &A, int p, int r);
 int partition(vector<int> & A, int p, int r);
 
@@ -31,7 +31,7 @@ int main(int argc, char ** argv)
    *  Begin timing sequence of:
    *  Quicksort (median of 3)
    */
-  int numRuns = 20;
+  int numRuns = 5;
   struct timeval start[numRuns];
   struct timeval end[numRuns];
 vector<float> time;
@@ -42,7 +42,7 @@ vector<float> time;
 		int array_first = 0;
  		int array_last  = (int) numbers.size()-1;
  		start[i] = startTime(&start[i]);
- 		quicksort(numbers, array_first, array_last);
+ 		quicksortMedian(numbers, array_first, array_last);
 
 
     end[i] = endTime(&end[i]);
@@ -65,13 +65,13 @@ vector<float> time;
 }
 
 
-void quicksort(std::vector<int> &A, int p, int r){
+void quicksortMedian(std::vector<int> &A, int p, int r){
   int q;
   if(p < r)
   {
     q = medianOfThreePartition(A, p, r);
-    quicksort(A, p, q-1);
-    quicksort(A, q+1, r);
+    quicksortMedian(A, p, q-1);
+    quicksortMedian(A, q+1, r);
   }
 }
 
@@ -105,10 +105,8 @@ int medianOfThreePartition(std::vector<int> &A, int p, int r){
 }
 
 int partition(std::vector<int> &A, int p, int r){
-  bool debug = !true;
   int x = A[r];
   int i = p-1;
-  if(debug){cout<<"x: "<<x<<" i: "<<i<<endl;}
   for(int j = p; j < r; j++)
   {
     if(A[j] <= x)

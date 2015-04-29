@@ -34,7 +34,7 @@ success = readInputFile(input_file, holder);
 	 *  Begin timing sequence of:
 	 *  Quicksort (random)
 	 */
-	int numRuns = 20;
+	int numRuns = 5;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
 

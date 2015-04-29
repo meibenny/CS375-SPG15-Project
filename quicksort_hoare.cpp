@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-void quicksort(std::vector<int> &A, int p, int r);
+void quicksortHoare(std::vector<int> &A, int p, int r);
 int partition(std::vector<int> &A, int p, int r);
 
 int main(int argc, char* argv[]){
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
 	 *  Begin timing sequence of:
 	 *  Quicksort (hoare)
 	 */
-	int numRuns = 20;
+	int numRuns = 5;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
 
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]){
 		int array_last  = (int) numbers.size()-1;
 
 		start[i] = startTime(&start[i]);
-		quicksort(numbers, array_first, array_last);
+		quicksortHoare(numbers, array_first, array_last);
 
 		end[i] = endTime(&end[i]);
 		time.push_back(calculateTime(&start[i], &end[i]));
@@ -66,25 +66,17 @@ int main(int argc, char* argv[]){
 	return 0;
 }
 
-void quicksort(std::vector<int> &A, int p, int r){
-	bool debug = !true;
-	if(debug){cout<<"p: "<<p<<" r: "<<r<<endl;}
+void quicksortHoare(std::vector<int> &A, int p, int r){
 	int q;
 	if(p < r)
 	{
 		q = partition(A, p, r);
-		quicksort(A, p, q);
-		quicksort(A, q+1, r);
+		quicksortHoare(A, p, q);
+		quicksortHoare(A, q+1, r);
 	}
 }
 
 int partition(std::vector<int> &A, int p, int r){
-	bool debug = !true;
-	if(debug){cout<<"in partition"<<endl;}
-	if(debug)
-	{
-		cout<<"segfault when assigning x. p: "<<p<<endl;
-	}
 	int x = A[p];
 	int i = p - 1;
 	int j = r + 1;
@@ -104,9 +96,6 @@ int partition(std::vector<int> &A, int p, int r){
 
 		if(i < j)
 		{
-			if(debug){cout<<"segfault when swapping."<<endl;}
-			if(debug){cout<<"i: "<<i<<endl;}
-			if(debug){cout<<"j: "<<j<<endl;}
 			swap(A[i], A[j]);
 		}
 		else

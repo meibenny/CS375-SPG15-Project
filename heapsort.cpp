@@ -59,7 +59,7 @@ int main(int argc, char * argv[]){
 	 *  Begin timing sequence of:
 	 *  Heapsort
 	 */
-	int numRuns = 20;
+	int numRuns = 5;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
 

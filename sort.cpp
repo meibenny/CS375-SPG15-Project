@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include "auxiliary_functions.cpp"
+#include "timer.cpp"
 using namespace std;
 /* Use this file to sort the automatically generated input
  *
@@ -25,11 +26,36 @@ int main(int argc, char* argv[]){
     exit(1);
   }
   string input_file = argv[1];
-  vector<int> numbers;
-  int success = readInputFile(input_file, numbers);
+  vector<int> numbers, holder;
+  int success = readInputFile(input_file, holder);
   //failed reading input file for whatever reason
   if(success != 0){cout<<"Error reading input file. Exiting."<<endl; exit(1);}
-  sort(numbers.begin(), numbers.end());
+
+ /*
+   *  Begin timing sequence of:
+   *  Mergesort
+   */
+  int numRuns = 5;
+  struct timeval start[numRuns];
+  struct timeval end[numRuns];
+
+  vector<float> time;
+  for(int i = 0; i < numRuns; i++)
+  {
+    numbers.clear();
+    numbers.assign(holder.begin(), holder.end());
+    start[i] = startTime(&start[i]);
+
+  	sort(numbers.begin(), numbers.end());
+    end[i] = endTime(&end[i]);
+    time.push_back(calculateTime(&start[i], &end[i]));
+  }
+  calcAvgTime(time);
+  /*
+   *  End timing sequence of:
+   *  Mergesort
+   */
+
   string output_file = argv[2];
   success = outputToFile(output_file, numbers);
   if(success != 0){cout<<"Error outputting to file. Exiting."<<endl; exit(1);}

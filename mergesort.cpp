@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
 	 *  Begin timing sequence of:
 	 *  Mergesort
 	 */
-	int numRuns = 20;
+	int numRuns = 5;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
 
