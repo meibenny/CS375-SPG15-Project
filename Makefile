@@ -46,7 +46,7 @@ $(GENERATE_NUMBERS): generate_numbers.cpp
 
 
 clean:
-	rm -f *.o $(GENERATE_NUMBERS) $(SORT) $(HYBRID) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(MERGE_SORT) $(HEAP_SORT)
+	rm -f *.o $(QSORT_MEDIAN) $(GENERATE_NUMBERS) $(SORT) $(HYBRID) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(MERGE_SORT) $(HEAP_SORT)
 
 generate-no-dup:
 	./generate_numbers 1 sorted false tests/testfiles/1_sorted_false.txt

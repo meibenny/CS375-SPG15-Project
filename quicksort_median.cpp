@@ -39,8 +39,12 @@ vector<float> time;
   {
     numbers.clear();
     numbers.assign(holder.begin(), holder.end());
-    start[i] = startTime(&start[i]);
-    //would hybrid sort here.. IF I HAD ONE
+		int array_first = 0;
+ 		int array_last  = (int) numbers.size()-1;
+ 		start[i] = startTime(&start[i]);
+ 		quicksort(numbers, array_first, array_last);
+
+
     end[i] = endTime(&end[i]);
     time.push_back(calculateTime(&start[i], &end[i]));
   }
@@ -81,10 +85,22 @@ int medianOfThreePartition(std::vector<int> &A, int p, int r){
   int i = distribution(generator);
   swap(A[r], A[i]);
 */  
-
-
-
-
+	int pivot = A[(r+p)/2];
+	if(A[p] <= pivot && A[r] <= A[p])
+	{
+    pivot = A[p];
+		swap(A[r], A[p]);
+	}
+	else if(A[r] <= pivot && A[p] <= A[r])
+	{
+		pivot = A[r];
+		//No need to swap
+		
+	}
+	else
+	{//Middle element remains the pivot
+		swap(A[r], A[(r+p)/2]);
+	}
 	return partition(A, p, r);
 }
 
