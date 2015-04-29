@@ -1,3 +1,10 @@
+#include "auxiliary_functions.cpp"
+#include "timer.cpp"
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 int main(int argc, char*[] argv)
 {
   if(!correctArgumentFormat(argc, argv))
