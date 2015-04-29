@@ -91,3 +91,27 @@ and heapsort. It starts sorting the given input by using quicksort, but
 if it detects heapsort going beyond a certain recursion level, it switches
 to heapsort to sort the array.
 
+
+Analysis of qsorts: After analysing more tests from these various algorithms,
+two quicksorts come to play. We will look at quicksort with Hoare/Median of 3
+Partitiong schemes
+
+Hoare 
+Pros: Maintains high performance on input with many duplicates
+      Slightly faster on randomized input
+Cons: Unable to perform acceptably on sorted/rsorted inputs
+Median of 3
+Pros: Maintains high performance on sorted/rsorted inputs
+cons: Unable to perform acceptably on input with many duplicates
+
+Proposition
+Since the hybrid sort we propose switches to heapsort at around 2*floor(lgn)
+recursion depth, why not attempt to sort as much of it as possible before 
+that depth is reached? We will go forward with the hybrid sort as proposed,
+and then if we can devise a way to check for the presence of many duplicates 
+in linear time, we would be able to pick the quicksort that has a higher
+performance for that input. If the number of duplicates is arbitrarily low,
+we will perform quicksort with hoare partition before switching to heapsort.
+Otherwise, we will perform quicksort with median of 3 partitioning before
+switching. I believe this modification will outperform the base hybrid sort
+described above in testing.
