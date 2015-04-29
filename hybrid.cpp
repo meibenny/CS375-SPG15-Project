@@ -1,8 +1,8 @@
 /* Implementation of our hybrid sort.
- *
- *
- *
- *
+ * This hybrid sort is called introsort:
+ * It starts off using quicksort(hoare)
+ * until it reaches 2lg(n) recursion depth
+ * when it switches to heapsort.
  */
 #include "auxiliary_functions.cpp"
 #include "timer.cpp"
@@ -54,7 +54,6 @@ int main(int argc, char ** argv)
 		dup = analyzeInput(numbers);
 
 
-		//would hybrid sort here.. IF I HAD ONE
 		end[i] = endTime(&end[i]);
 		time.push_back(calculateTime(&start[i], &end[i]));
 	}
@@ -91,18 +90,41 @@ int analyzeInput(vector<int>& a)
 	lastVal = a[0];
 	set<int> values;
 	values.insert(lastVal);	
+	bool firstCheck = false, secondCheck = false, thirdCheck = false;
 	for(int i = 0 ; i <(int) a.size(); i += 20)
 	{
 		if(values.find(a[i]) == values.end())
-		{
+		{//checking each fourth of the input to make sure none of it 
+		///contains mostly duplicates
 			values.insert(a[i]);
-			if(values.size() > 15)
+			if(values.size() > 5 && !firstCheck)
+			{
+				firstCheck = true;
+				i += a.size()/4;
+			}
+			else if(values.size() > 10 && !secondCheck)
+			{
+				secondCheck = true;
+				i += a.size()/4;
+			}
+			else if(values.size() > 15 && !thirdCheck)
+			{
+				thirdCheck = true;
+				i += a.size()/4;
+			}
+			else if(values.size() > 20)
 				break;
 		}	
-		
+		else
+		{
+			//If value is found, check to see if same value lies ahead
+			if(a[i] == a[i + a.size()/10] && a[i] == a[i + a.size()/20])
+				i+= a.size()/10;
+
+		}
 	}
 
-	if(values.size() < 15)
+	if(values.size() < 20)
 		dupVal = 1;
 
 
