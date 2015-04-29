@@ -12,9 +12,10 @@ AUX_FUNCTIONS = auxiliary_functions.cpp
 MERGE_SORT = mergesort
 HEAP_SORT = heapsort
 HYBRID = hybrid
+QSORT_MEDIAN = quicksort_median
 TIMER = timer.cpp
 
-all: $(GENERATE_NUMBERS) $(SORT) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(MERGE_SORT) $(HEAP_SORT) $(HYBRID) $(TIMER)
+all: $(GENERATE_NUMBERS) $(SORT) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(QSORT_MEDIAN) $(MERGE_SORT) $(HEAP_SORT) $(HYBRID) $(TIMER)
 
 $(HEAP_SORT): heapsort.cpp $(AUX_FUNCTIONS)
 	$(COMPILER) $(CXXFLAGS) -o $(HEAP_SORT) heapsort.cpp
@@ -30,6 +31,9 @@ $(QSORT_HOARE): quicksort_hoare.cpp $(AUX_FUNCTIONS)
 
 $(QSORT_LOMUTO): quicksort_lomuto.cpp $(AUX_FUNCTIONS)
 	$(COMPILER) $(CXXFLAGS) -o $(QSORT_LOMUTO) quicksort_lomuto.cpp
+
+$(QSORT_MEDIAN): quicksort_median.cpp $(AUX_FUNCTIONS)
+	$(COMPILER) $(CXXFLAGS) -o $(QSORT_MEDIAN) quicksort_median.cpp
 
 $(SORT): sort.cpp $(AUX_FUNCTIONS)
 	$(COMPILER) $(CXXFLAGS) -o $(SORT) sort.cpp
