@@ -9,7 +9,8 @@ David Skoda
   Implemented Timing code into all sorts
   Edited Makefile to support testing
   Complete implementation of basic input analyzation
-  Complete impementation of Introsort and Hybrid sort
+  Complete impementation of Hybrid sort
+  Finished implementation of Introsort
   Contributed to Analysis of sorts
   
 Joseph Grillo
@@ -29,4 +30,5 @@ Benny Mei
   Complete first implementation of quicksort with hoare partitioning
   Contributed to code styling guidelines
   Edited Makefile to support testing
+  Started implementation of Introsort
   Contributed to Scientific method and Analysis of sorts
