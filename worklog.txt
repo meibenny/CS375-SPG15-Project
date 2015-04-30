@@ -8,10 +8,13 @@ David Skoda
   Contributed to code styling guidelines
   Implemented Timing code into all sorts
   Edited Makefile to support testing
+  Complete implementation of basic input analyzation
+  Complete impementation of Introsort and Hybrid sort
   
 Joseph Grillo
   Project Idea Suggestions
   Complete first implementation of heapsort
+  Complete baseline tests for all sorts/inputs
   Contributed to code styling guidelines
   
 Benny Mei
