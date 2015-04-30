@@ -10,12 +10,14 @@ David Skoda
   Edited Makefile to support testing
   Complete implementation of basic input analyzation
   Complete impementation of Introsort and Hybrid sort
+  Contributed to Analysis of sorts
   
 Joseph Grillo
   Project Idea Suggestions
   Complete first implementation of heapsort
   Complete baseline tests for all sorts/inputs
   Contributed to code styling guidelines
+  Contributed to Scientific method & Analysis of sorts
   
 Benny Mei
   Project Idea Suggestions
@@ -27,3 +29,4 @@ Benny Mei
   Complete first implementation of quicksort with hoare partitioning
   Contributed to code styling guidelines
   Edited Makefile to support testing
+  Contributed to Scientific method and Analysis of sorts
