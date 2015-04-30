@@ -23,7 +23,7 @@ int main(int argc, char ** argv)
 	 * Begin timing sequence of:
 	 * Hybridsort
 	 */
-	int numRuns = 1;
+	int numRuns = 5;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
 	vector<float> time;
@@ -60,7 +60,6 @@ void sort(std::vector<int> &A, int p, int r)
 {
 	//This depth will be fine tuned after running tests
 	int max_depth = 2* floor(log2(A.size()));
-	cout << "Max recursion depth we will go to: " << max_depth << endl;
 	introsort(A, p, r, max_depth);
 }
 

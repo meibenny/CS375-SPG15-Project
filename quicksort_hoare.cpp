@@ -11,7 +11,6 @@ void quicksortHoare(std::vector<int> &A, int p, int r);
 int partition(std::vector<int> &A, int p, int r);
 
 int main(int argc, char* argv[]){
-	bool debug = !true;
 	if(!correctArgumentFormat(argc, argv))
 	{
 		exit(1);
@@ -55,7 +54,6 @@ int main(int argc, char* argv[]){
 	 *  Quicksort (hoare)
 	 */
 
-	if(debug){for(auto e: numbers){cout<<e<<endl;}}
 	string output_file = argv[2];
 	success = outputToFile(output_file, numbers);
 	if(success != 0)

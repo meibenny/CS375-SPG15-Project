@@ -14,7 +14,6 @@ int randomPartition(std::vector<int> &A, int p, int r);
 int partition(std::vector<int> &A, int p, int r);
 
 int main(int argc, char* argv[]){
-	bool debug = !true;
 	if(!correctArgumentFormat(argc, argv))
 	{
 		exit(1);
@@ -57,7 +56,6 @@ success = readInputFile(input_file, holder);
 	 *  End timing sequence of:
 	 *  Quicksort (random)
 	 */
-	if(debug){for(auto e: numbers){cout<<e<<endl;}}
 	string output_file = argv[2];
 	success = outputToFile(output_file, numbers);
 	if(success != 0)

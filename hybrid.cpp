@@ -1,11 +1,7 @@
-/* Implementation of our hybrid sort.
- * This hybrid sort is called introsort:
- * It starts off using quicksort(hoare)
- * until it reaches 2lg(n) recursion depth
- * when it switches to heapsort.
- */
 #include "hybrid.h"
 using namespace std;
+void sort(vector<int> & A, int p, int r);
+void introsort(vector<int> &A, int p, int r, int max_depth);
 
 int main(int argc, char ** argv)
 {
@@ -42,7 +38,7 @@ int main(int argc, char ** argv)
 		start[i] = startTime(&start[i]);
 
 		dup = analyzeInput(numbers);
-
+		sort(numbers, 0, (int)numbers.size()-1);
 
 		end[i] = endTime(&end[i]);
 		time.push_back(calculateTime(&start[i], &end[i]));
@@ -69,4 +65,37 @@ int main(int argc, char ** argv)
 	}
 	return 0;
 }
+
+void sort(std::vector<int> &A, int p, int r)
+{
+  //This depth will be fine tuned after running tests
+  int max_depth = 2* floor(log2(A.size()));
+  introsort(A, p, r, max_depth);
+}
+
+void introsort(vector<int> &A, int p, int r, int max_depth)
+{
+  int n = r-p;
+  if(n <= 1)
+  {
+    return; //We're in the base case
+  }
+  else if(max_depth == 0)
+  {
+    heapsort(A, n);
+    return;
+  }
+  else
+  {
+    int q;
+    q = partitionHoare(A, p, r);
+    introsort(A, p, q, --max_depth);
+    introsort(A, q+1, r, --max_depth);
+  }
+
+
+}
+
+
+
 
