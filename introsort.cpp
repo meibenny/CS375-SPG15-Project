@@ -5,6 +5,11 @@
 
 using namespace std;
 
+
+void sort(std::vector<int> &A, int p, int r);
+void introsort(std::vector<int> &A, int p, int r, int max_depth);
+int partition(std::vector<int> &A, int p, int r);
+
 int main(int argc, char*[] argv)
 {
   if(!correctArgumentFormat(argc, argv))
