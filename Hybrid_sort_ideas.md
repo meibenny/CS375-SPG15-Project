@@ -1,3 +1,5 @@
+Hybrid sort brainstorming
+--------------------------
 -Scan through to see if its already mostly sorted.. If maybe ~50 or less items are only out of
   place, call a bubble sort which approaches linear complexity when mostly sorted. Fixes worst 
   case for quicksorts
@@ -10,6 +12,7 @@
   in the sorts we have. this actually looks really cool to me and i'd like to explore it further'
 
   Scientific Method
+  ------------------
 -Question: How do we come up with the fastest sorting algorithm regardless 
 of the data file?
 
@@ -51,7 +54,7 @@ fairly low we know that the data is randomized and we should proceed with
 the quicksort algorithm.
 
 ANALYSIS
-
+--------
 While analyzing the times it takes to sort different input formats, 
 i.e. sorted, reversely sorted, or randomized, we first noticed that 
 mergesort is unacceptably slow for even the smallest input sizes. 
@@ -90,10 +93,10 @@ introsort. Introsort is a hybrid sorting algorithm based on quicksort
 and heapsort. It starts sorting the given input by using quicksort, but
 if it detects heapsort going beyond a certain recursion level, it switches
 to heapsort to sort the array.
-----
+
 
 Hybrid sort analysis
-
+--------------------
 Analysis of qsorts: After analysing more tests from these various algorithms,
 two quicksorts come to play. We will look at quicksort with Hoare/Median of 3
 Partitiong schemes
