@@ -23,7 +23,7 @@ int main(int argc, char ** argv)
 	 * Begin timing sequence of:
 	 * Hybridsort
 	 */
-	int numRuns = 20;
+	int numRuns = 1;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
 	vector<float> time;
@@ -31,9 +31,10 @@ int main(int argc, char ** argv)
 	{
 		numbers.clear();
 		numbers.assign(holder.begin(), holder.end());
+		int p = 0, r = (int)numbers.size() - 1;		
 		start[i] = startTime(&start[i]);
 
-
+		sort(numbers, p, r);
 
 
 		end[i] = endTime(&end[i]);
@@ -55,27 +56,17 @@ int main(int argc, char ** argv)
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 void sort(std::vector<int> &A, int p, int r)
 {
-	//We use log10 because the algorithm doens't specify which log to use.
-	int max_depth = floor(log2(A.size())) * 2;
+	//This depth will be fine tuned after running tests
+	int max_depth = 2* floor(log2(A.size()));
+	cout << "Max recursion depth we will go to: " << max_depth << endl;
 	introsort(A, p, r, max_depth);
 }
 
 void introsort(vector<int> &A, int p, int r, int max_depth)
 {
-	int n = A.size();
+	int n = r-p;
 	if(n <= 1)
 	{
 		return; //We're in the base case
@@ -83,5 +74,15 @@ void introsort(vector<int> &A, int p, int r, int max_depth)
 	else if(max_depth == 0)
 	{
 		heapsort(A, n);
+		return;
 	}
+	else
+	{
+		int q;
+		q = partitionHoare(A, p, r);
+		introsort(A, p, q, --max_depth);
+		introsort(A, q+1, r, --max_depth);
+	}
+
+
 }

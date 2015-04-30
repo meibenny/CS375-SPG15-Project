@@ -42,8 +42,8 @@ $(SORT): sort.cpp $(AUX_FUNCTIONS)
 $(HYBRID): hybrid.cpp $(AUX_FUNCTIONS)
 	$(COMPILER) $(CXXFLAGS) -o $(HYBRID) hybrid.cpp
 
-$(INTROSORT): introsort.cpp $(AUX_FUNCTIONS)
-	$(COMPILER) $(CXXFLAGS) -o $(INTROSORT) introsort.cpp
+$(INTROSORT): introsort.cpp $(AUX_FUNCTIONS) 
+	$(COMPILER) $(CXXFLAGS) -o $(INTROSORT) introsort.cpp hybrid.h
 
 $(GENERATE_NUMBERS): generate_numbers.cpp
 	$(COMPILER) $(CXXFLAGS) -o $(GENERATE_NUMBERS) generate_numbers.cpp 

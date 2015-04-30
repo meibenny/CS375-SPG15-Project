@@ -71,6 +71,7 @@ void quicksortHoare(std::vector<int> &A, int p, int r){
 		quicksortHoare(A, q+1, r);
 	}
 }
+
 int partitionHoare(std::vector<int> &A, int p, int r){
 	int x = A[p];
 	int i = p - 1;
