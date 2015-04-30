@@ -1,8 +1,8 @@
 #include "hybrid.h"
 using namespace std;
-void sort(vector<int> & A, int p, int r);
+void sort(vector<int> & A, int p, int r, bool dup);
 void hoareSort(vector<int> &A, int p, int r, int max_depth);
-
+void medianSort(vector<int> &A, int p, int r, int max_depth);
 int main(int argc, char ** argv)
 {
 	vector<int>numbers;
@@ -25,7 +25,7 @@ int main(int argc, char ** argv)
 	 *  Begin timing sequence of:
 	 *  Hybridsort
 	 */
-	int numRuns = 20;
+	int numRuns = 1;
 	struct timeval start[numRuns];
 	struct timeval end[numRuns];
 
@@ -38,16 +38,7 @@ int main(int argc, char ** argv)
 		start[i] = startTime(&start[i]);
 
 		dup = analyzeInput(numbers);
-		if(dup)
-		{
-			sort(numbers, 0, (int)numbers.size()-1);
-			
-			cout << "High number of duplicates detected." << endl;
-		}
-		else
-		{
-			cout << "Low number of duplicated detected." << endl;
-		}
+		sort(numbers, 0, (int)numbers.size()-1, dup);
 
 		end[i] = endTime(&end[i]);
 		time.push_back(calculateTime(&start[i], &end[i]));
@@ -67,13 +58,43 @@ int main(int argc, char ** argv)
 	return 0;
 }
 
-void sort(std::vector<int> &A, int p, int r)
+void sort(std::vector<int> &A, int p, int r, bool dup)
 {
 	//This depth will be fine tuned after running tests
 	int max_depth = 2* floor(log2(A.size()));
-	hoareSort(A, p, r, max_depth);
+
+	if(dup)
+	{
+	cout << "In hoare sort" << endl;
+		hoareSort(A, p, r, max_depth);
+	}
+	else
+	{
+	cout << "In median sort" << endl;
+		medianSort(A, p, r, max_depth);
+	}
 }
 
+void medianSort(vector<int> &A, int p, int r, int max_depth)
+{
+	int n = r-p;
+	if(n <= 1)
+	{
+		return; //We're in the base case
+	}
+	else if(max_depth == 0)
+	{
+		heapsort(A, n);
+		return;
+	}
+	else
+	{
+		int q;
+		q = medianOfThreePartition(A, p, r);
+		medianSort(A, p, q, --max_depth);
+		medianSort(A, q+1, r, --max_depth);
+	}
+}
 void hoareSort(vector<int> &A, int p, int r, int max_depth)
 {
 	int n = r-p;
