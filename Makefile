@@ -12,10 +12,11 @@ AUX_FUNCTIONS = auxiliary_functions.cpp
 MERGE_SORT = mergesort
 HEAP_SORT = heapsort
 HYBRID = hybrid
+INTROSORT = introsort
 QSORT_MEDIAN = quicksort_median
 TIMER = timer.cpp
 
-all: $(GENERATE_NUMBERS) $(SORT) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(QSORT_MEDIAN) $(MERGE_SORT) $(HEAP_SORT) $(HYBRID) $(TIMER)
+all: $(GENERATE_NUMBERS) $(SORT) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(QSORT_MEDIAN) $(MERGE_SORT) $(HEAP_SORT) $(HYBRID) $(INTROSORT) $(TIMER)
 
 $(HEAP_SORT): heapsort.cpp $(AUX_FUNCTIONS)
 	$(COMPILER) $(CXXFLAGS) -o $(HEAP_SORT) heapsort.cpp
@@ -41,12 +42,15 @@ $(SORT): sort.cpp $(AUX_FUNCTIONS)
 $(HYBRID): hybrid.cpp $(AUX_FUNCTIONS)
 	$(COMPILER) $(CXXFLAGS) -o $(HYBRID) hybrid.cpp
 
+$(INTROSORT): introsort.cpp $(AUX_FUNCTIONS)
+	$(COMPILER) $(CXXFLAGS) -o $(INTROSORT) introsort.cpp
+
 $(GENERATE_NUMBERS): generate_numbers.cpp
 	$(COMPILER) $(CXXFLAGS) -o $(GENERATE_NUMBERS) generate_numbers.cpp 
 
 
 clean:
-	rm -f *.o $(QSORT_MEDIAN) $(GENERATE_NUMBERS) $(SORT) $(HYBRID) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(MERGE_SORT) $(HEAP_SORT)
+	rm -f *.o $(QSORT_MEDIAN) $(INTROSORT) $(GENERATE_NUMBERS) $(SORT) $(HYBRID) $(QSORT_LOMUTO) $(QSORT_HOARE) $(QSORT_RANDOM) $(MERGE_SORT) $(HEAP_SORT)
 
 generate-no-dup:
 	./generate_numbers 1 sorted false tests/testfiles/1_sorted_false.txt
