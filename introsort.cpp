@@ -79,8 +79,11 @@ void introsort(vector<int> &A, int p, int r, int max_depth)
 	{
 		int q;
 		q = partitionHoare(A, p, r);
-		introsort(A, p, q, --max_depth);
-		introsort(A, q+1, r, --max_depth);
+    //We use max_depth - 1 instead of --max_depth to avoid confusion
+    //with pointer arithmetic and to avoid confusion regarding the
+    //return value of the expression
+		introsort(A, p, q, max_depth - 1);
+		introsort(A, q+1, r, max_depth - 1);
 	}
 
 
