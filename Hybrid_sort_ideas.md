@@ -90,7 +90,9 @@ introsort. Introsort is a hybrid sorting algorithm based on quicksort
 and heapsort. It starts sorting the given input by using quicksort, but
 if it detects heapsort going beyond a certain recursion level, it switches
 to heapsort to sort the array.
+----
 
+Hybrid sort analysis
 
 Analysis of qsorts: After analysing more tests from these various algorithms,
 two quicksorts come to play. We will look at quicksort with Hoare/Median of 3
@@ -98,10 +100,14 @@ Partitiong schemes
 
 Hoare 
 Pros: Maintains high performance on input with many duplicates
-      Slightly faster on randomized input
+
+Slightly faster on randomized input
+
 Cons: Unable to perform acceptably on sorted/rsorted inputs
+
 Median of 3
 Pros: Maintains high performance on sorted/rsorted inputs
+
 cons: Unable to perform acceptably on input with many duplicates
 
 Proposition
