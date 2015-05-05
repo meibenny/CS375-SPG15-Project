@@ -1,0 +1,3 @@
+A file containing the timed results of our tests is located at:
+
+https://docs.google.com/a/binghamton.edu/spreadsheets/d/19oVb__sBh8oCOhsK7K6b3J4uL24EloMGIf1avWFBIB0/edit?usp=sharing
